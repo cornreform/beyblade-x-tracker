@@ -3,54 +3,66 @@ const ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/data/global_db.json',
-  '/data/combos.json',
-  '/data/parts.json'
+  '/parts/gear-3-80.png',
+  '/parts/gear-5-60.png',
+  '/parts/gear-7-60.png',
+  '/parts/gear-9-60.png',
+  '/parts/axis-N.png',
+  '/parts/axis-B.png',
+  '/parts/axis-O.png',
+  '/parts/axis-S.png'
 ];
 
-// Install
+// Install: cache all static assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(ASSETS))
-      .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS);
+    })
   );
+  self.skipWaiting();
 });
 
-// Activate
+// Activate: clean old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.delete('beyblade-x-v0')
-      .then(() => self.clients.claim())
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))
+      );
+    })
   );
+  self.clients.claim();
 });
 
-// Fetch
+// Fetch: network-first, fallback to cache
 self.addEventListener('fetch', (event) => {
+  // Skip non-GET and chrome-extension requests
+  if (event.request.method !== 'GET') return;
+  if (event.request.url.startsWith('chrome-extension://')) return;
+
   event.respondWith(
-    caches.match(event.request)
-      .then((cached) => {
-        if (cached) return cached;
-        
-        return fetch(event.request)
-          .then((response) => {
-            // Don't cache non-GET requests
-            if (event.request.method !== 'GET') return response;
-            
-            // Clone and cache successful responses
-            if (response.ok) {
-              const clone = response.clone();
-              caches.open(CACHE_NAME)
-                .then((cache) => cache.put(event.request, clone));
-            }
-            return response;
-          })
-          .catch(() => {
-            // Offline fallback for HTML pages
-            if (event.request.headers.get('accept').includes('text/html')) {
-              return caches.match('/index.html');
-            }
+    fetch(event.request)
+      .then((response) => {
+        // Clone and cache successful responses
+        if (response.status === 200) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone);
           });
+        }
+        return response;
+      })
+      .catch(() => {
+        // Offline: serve from cache
+        return caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          // For navigation requests, return index.html
+          if (event.request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
+          return new Response('Offline', { status: 503 });
+        });
       })
   );
 });

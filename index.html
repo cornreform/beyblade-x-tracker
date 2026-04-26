@@ -1,1134 +1,757 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-HK">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1a1a2e">
-  <meta name="description" content="爆旋陀螺X 收藏工具 - 追蹤、管理、比較你的陀螺收藏">
-  <title>爆旋陀螺X 收藏工具</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
-  <style>
-    :root {
-      --primary: #e94560;
-      --primary-dark: #c73e54;
-      --bg: #0f0f23;
-      --bg-card: #1a1a2e;
-      --bg-input: #16213e;
-      --text: #eaeaea;
-      --text-dim: #8a8a9a;
-      --border: #2a2a4a;
-      --success: #4ade80;
-      --warning: #fbbf24;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding-bottom: 80px;
-    }
-
-    /* Header */
-    header {
-      background: var(--bg-card);
-      padding: 16px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-content {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    h1 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .sync-status {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sync-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-    }
-
-    .sync-dot.offline { background: var(--warning); }
-    .sync-dot.error { background: var(--primary); }
-
-    /* Main */
-    main {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 4px;
-      background: var(--bg-card);
-      padding: 4px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
-    .tab {
-      flex: 1;
-      padding: 10px;
-      text-align: center;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-dim);
-      background: transparent;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .tab.active {
-      background: var(--primary);
-      color: white;
-    }
-
-    .tab:hover:not(.active) {
-      background: var(--bg-input);
-    }
-
-    /* Section */
-    .section { display: none; }
-    .section.active { display: block; }
-
-    .section-title {
-      font-size: 0.9rem;
-      color: var(--text-dim);
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Search */
-    .search-box {
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 14px 16px 14px 44px;
-      background: var(--bg-input);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    .search-box input:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    .search-box::before {
-      content: "🔍";
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1rem;
-    }
-
-    /* Cards */
-    .card {
-      background: var(--bg-card);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 8px;
-    }
-
-    .beyblade-id {
-      font-size: 0.75rem;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .beyblade-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin: 4px 0;
-    }
-
-    .beyblade-type {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-    }
-
-    .rating {
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    .rating.t0 { background: #22c55e; color: white; }
-    .rating.t1 { background: #84cc16; color: white; }
-    .rating.t2 { background: #eab308; color: black; }
-    .rating.t3 { background: #f97316; color: white; }
-    .rating.t4 { background: #ef4444; color: white; }
-
-    /* Owned Badge */
-    .owned-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 8px;
-      background: var(--success);
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      border-radius: 10px;
-      margin-left: 8px;
-    }
-
-    /* Spin Direction */
-    .spin {
-      display: inline-block;
-      padding: 2px 8px;
-      background: var(--bg-input);
-      border-radius: 6px;
-      font-size: 0.75rem;
-      margin-left: 8px;
-    }
-
-    /* Combo Parts */
-    .combo-parts {
-      display: flex;
-      gap: 6px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
-
-    .combo-part {
-      padding: 4px 10px;
-      background: var(--bg-input);
-      border-radius: 8px;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-    }
-
-    /* Actions */
-    .actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .btn {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-
-    .btn-secondary {
-      background: var(--bg-input);
-      color: var(--text);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    /* Form Modal */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 200;
-      justify-content: center;
-      align-items: flex-end;
-    }
-
-    .modal-overlay.active { display: flex; }
-
-    .modal {
-      background: var(--bg-card);
-      width: 100%;
-      max-width: 600px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 24px 24px 0 0;
-      padding: 24px;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .modal-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--text-dim);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 6px;
-    }
-
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      padding: 12px;
-      background: var(--bg-input);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    .form-textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .star-rating {
-      display: flex;
-      gap: 8px;
-    }
-
-    .star {
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--border);
-      transition: color 0.2s;
-    }
-
-    .star.active { color: var(--warning); }
-
-    /* Stats */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .stat-card {
-      background: var(--bg-card);
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      border: 1px solid var(--border);
-    }
-
-    .stat-value {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      margin-top: 4px;
-    }
-
-    /* Info Section */
-    .info-box {
-      background: var(--bg-card);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border);
-    }
-
-    .info-box h3 {
-      font-size: 0.9rem;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .info-box p {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 1.5;
-    }
-
-    /* Data Management */
-    .data-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    /* Filter */
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .filter-chip {
-      padding: 6px 12px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-chip.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: white;
-    }
-
-    /* PWA Guide */
-    .pwa-guide p {
-      margin-bottom: 12px;
-    }
-
-    .pwa-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .pwa-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .step-icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    .pwa-step div {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 1.4;
-    }
-
-    /* Last Updated */
-    .last-updated {
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      margin-top: 20px;
-    }
-
-    /* Recommendation Index */
-    .rec-index {
-      display: flex !important;
-      flex-direction: row !important;
-      gap: 3px !important;
-      margin-top: 6px;
-      flex-flow: row nowrap !important;
-    }
-
-    .rec-index > * {
-      display: inline-block !important;
-    }
-
-    .rec-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--border);
-    }
-
-    .rec-dot.active { background: var(--primary); }
-
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--bg-card);
-      color: var(--text);
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      z-index: 300;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .toast.show { opacity: 1; }
-
-    /* Empty State */
-    .empty-state {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-dim);
-    }
-
-    .empty-state-icon {
-      font-size: 3rem;
-      margin-bottom: 12px;
-    }
-
-    /* Hidden file input */
-    #importInput { display: none; }
-
-    /* Loading */
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-dim);
-    }
-
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid var(--border);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 16px;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#6c5ce7">
+<meta name="description" content="爆旋陀螺X 個人收藏管理與全球圖鑑">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="陀螺收藏">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/parts/gear-3-80.png">
+<title>🌀 爆旋陀螺X 收藏庫</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0f0f23;
+    color: #e0e0e0;
+    line-height: 1.6;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  header {
+    text-align: center; padding: 30px 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px; margin-bottom: 24px;
+    border: 1px solid #2a2a4a;
+  }
+  header h1 { font-size: 2rem; color: #fff; margin-bottom: 8px; }
+  header p { color: #888; font-size: 0.95rem; }
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px; margin-bottom: 24px;
+  }
+  .stat-card {
+    background: #1a1a2e; border-radius: 12px; padding: 16px;
+    text-align: center; border: 1px solid #2a2a4a;
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); border-color: #4a4a6a; }
+  .stat-card .num { font-size: 1.8rem; font-weight: bold; color: #6c5ce7; }
+  .stat-card .label { font-size: 0.85rem; color: #888; margin-top: 4px; }
+
+  .tabs {
+    display: flex; gap: 8px; margin-bottom: 20px;
+    background: #1a1a2e; padding: 6px; border-radius: 12px;
+    border: 1px solid #2a2a4a;
+  }
+  .tab {
+    flex: 1; padding: 12px; text-align: center; cursor: pointer;
+    border-radius: 8px; font-weight: 500; transition: all 0.2s;
+    background: transparent; color: #888; border: none;
+  }
+  .tab.active { background: #6c5ce7; color: white; }
+  .tab:hover:not(.active) { background: #2a2a4a; color: #ccc; }
+
+  .search-box {
+    width: 100%; padding: 14px 18px; border-radius: 12px;
+    border: 1px solid #2a2a4a; background: #1a1a2e; color: #e0e0e0;
+    font-size: 1rem; margin-bottom: 16px; outline: none;
+  }
+  .search-box:focus { border-color: #6c5ce7; }
+
+  .filters {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+  }
+  .filter-chip {
+    padding: 8px 16px; border-radius: 20px; border: 1px solid #2a2a4a;
+    background: #1a1a2e; color: #888; cursor: pointer; font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .filter-chip:hover, .filter-chip.active {
+    background: #6c5ce7; color: white; border-color: #6c5ce7;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #1a1a2e; border-radius: 16px; padding: 20px;
+    border: 1px solid #2a2a4a; transition: all 0.2s; cursor: pointer;
+    position: relative;
+  }
+  .card img {
+    position: relative; z-index: 1;
+  }
+  .card:hover {
+    transform: translateY(-3px); border-color: #4a4a6a;
+    box-shadow: 0 8px 32px rgba(108,92,231,0.15);
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    z-index: 2; pointer-events: none;
+    border-radius: 16px 16px 0 0;
+  }
+  .card.T0::before { background: linear-gradient(90deg, #ff6b6b, #feca57); }
+  .card.T1::before { background: linear-gradient(90deg, #feca57, #48dbfb); }
+  .card.T2::before { background: linear-gradient(90deg, #48dbfb, #1dd1a1); }
+  .card.T3::before { background: linear-gradient(90deg, #8395a7, #576574); }
+
+  /* Owned cards: hide top bar, use left green border instead */
+  .card.owned { border-left: 4px solid #1dd1a1; }
+  .card.owned::before {
+    display: none !important;
+    height: 0 !important;
+    visibility: hidden;
+  }
+
+  .card-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .card-id { font-size: 0.8rem; color: #6c5ce7; font-weight: bold; }
+  .card-tier {
+    padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold;
+  }
+  .tier-T0 { background: rgba(255,107,107,0.2); color: #ff6b6b; }
+  .tier-T1 { background: rgba(254,202,87,0.2); color: #feca57; }
+  .tier-T2 { background: rgba(72,219,251,0.2); color: #48dbfb; }
+  .tier-T3 { background: rgba(131,149,167,0.2); color: #8395a7; }
+
+  .card-name { font-size: 1.15rem; font-weight: bold; color: #fff; margin-bottom: 4px; }
+  .card-name-jp { font-size: 0.8rem; color: #666; margin-bottom: 12px; }
+
+  .specs {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+    font-size: 0.85rem;
+  }
+  .spec { display: flex; justify-content: space-between; }
+  .spec-label { color: #666; }
+  .spec-value { color: #ccc; font-weight: 500; }
+
+  .badge-owned {
+    position: absolute; top: 12px; right: 12px;
+    background: #1dd1a1; color: #0f0f23;
+    padding: 4px 10px; border-radius: 12px;
+    font-weight: 700; font-size: 0.75rem; letter-spacing: 0.02em;
+    z-index: 200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  .buy-score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .dot { width: 20px; height: 20px; border-radius: 50%; }
+  .dot.on { background: #1dd1a1; }
+  .dot.off { background: #2a2a4a; }
+
+  /* Personal collection tier display */
+  .tier-display {
+    margin-top: 12px; font-size: 0.8rem; font-weight: 600;
+    color: #feca57; text-align: center;
+  }
+
+  /* Owned card footer: badge + tier side by side */
+  .owned-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid #2a2a4a;
+  }
+  .owned-tag {
+    background: #1dd1a1; color: #0f0f23;
+    padding: 4px 10px; border-radius: 12px;
+    font-weight: 700; font-size: 0.75rem;
+  }
+  .tier-inline {
+    font-size: 0.8rem; font-weight: 600; padding: 2px 8px; border-radius: 8px;
+  }
+  .tier-inline.tier-T0 { background: rgba(255,107,107,0.2); color: #ff6b6b; }
+  .tier-inline.tier-T0\.5 { background: rgba(255,107,107,0.15); color: #ff8787; }
+  .tier-inline.tier-T1 { background: rgba(116,185,255,0.2); color: #74b9ff; }
+  .tier-inline.tier-T2 { background: rgba(254,202,87,0.2); color: #feca57; }
+  .tier-inline.tier-T3 { background: rgba(130,130,130,0.2); color: #a0a0a0; }
+
+  /* Buy score: dots + tier label */
+  .buy-score { display: flex; flex-direction: row; align-items: center; gap: 6px; margin-top: 12px; }
+  .buy-score-label { font-size: 0.75rem; color: #888; margin-left: 4px; }
+
+  .detail-modal {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .detail-modal.show { display: flex; }
+  .modal-content {
+    background: #1a1a2e; border-radius: 20px; padding: 32px;
+    max-width: 500px; width: 100%; border: 1px solid #2a2a4a;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .modal-close {
+    float: right; font-size: 1.5rem; color: #888; cursor: pointer;
+    line-height: 1;
+  }
+  .modal-close:hover { color: #fff; }
+
+  .empty-state {
+    text-align: center; padding: 60px 20px; color: #666;
+  }
+  .empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+
+  .refresh-btn {
+    position: fixed; bottom: 24px; right: 24px;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #6c5ce7; color: white; border: none;
+    font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 16px rgba(108,92,231,0.4);
+    transition: all 0.2s; z-index: 100;
+  }
+  .refresh-btn:hover { transform: scale(1.1); }
+  .refresh-btn.spin { animation: spin 1s linear infinite; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .section-title {
+    font-size: 1.1rem; color: #fff; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 1.5rem; }
+    .tabs { flex-direction: column; }
+  }
+</style>
 </head>
 <body>
+<div class="container">
   <header>
-    <div class="header-content">
-      <h1>🎯 爆旋陀螺X 收藏工具</h1>
-      <div class="sync-status">
-        <span class="sync-dot" id="syncDot"></span>
-        <span id="syncText">載入中</span>
-      </div>
-    </div>
+    <h1>🌀 爆旋陀螺X 收藏庫</h1>
+    <p> Beyblade X Collection Manager • 實時數據同步</p>
   </header>
 
-  <main>
-    <!-- Tabs -->
-    <div class="tabs">
-      <button class="tab active" data-tab="collection">📦 收藏</button>
-      <button class="tab" data-tab="catalog">📚 圖鑑</button>
-      <button class="tab" data-tab="combos">🏆 組合</button>
-      <button class="tab" data-tab="tools">🛠️ 工具</button>
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-card">
+      <div class="num" id="statTotal">0</div>
+      <div class="label">全球款式</div>
     </div>
-
-    <!-- Collection Section -->
-    <section class="section active" id="collection">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-value" id="statOwned">0</div>
-          <div class="stat-label">已擁有</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="statTotal">0</div>
-          <div class="stat-label">總款式</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="statRating">-</div>
-          <div class="stat-label">平均評分</div>
-        </div>
-      </div>
-
-      <div class="filter-bar">
-        <span class="filter-chip active" data-filter="all">全部</span>
-        <span class="filter-chip" data-filter="owned">已擁有</span>
-        <span class="filter-chip" data-filter="t0">T0</span>
-        <span class="filter-chip" data-filter="t1">T1</span>
-        <span class="filter-chip" data-filter="t2">T2</span>
-      </div>
-
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="搜尋陀螺名稱或編號...">
-      </div>
-
-      <div id="collectionList"></div>
-    </section>
-
-    <!-- Catalog Section -->
-    <section class="section" id="catalog">
-      <div class="search-box">
-        <input type="text" id="catalogSearch" placeholder="搜尋圖鑑...">
-      </div>
-      <div id="catalogList"></div>
-    </section>
-
-    <!-- Combos Section -->
-    <section class="section" id="combos">
-      <div class="info-box">
-        <h3>🏆 冠軍組合推薦</h3>
-        <p>以下組合由專業玩家驗證，適合競技使用。</p>
-      </div>
-      <div id="combosList"></div>
-    </section>
-
-    <!-- Tools Section -->
-    <section class="section" id="tools">
-      <div class="info-box pwa-guide">
-        <h3>📱 安裝為手機App</h3>
-        <p>你可以將呢個工具安裝到手機主畫面，方便隨時使用：</p>
-        <div class="pwa-steps">
-          <div class="pwa-step">
-            <span class="step-icon">🍎</span>
-            <div><strong>iPhone 用戶</strong><br>Safari開啟 → 點擊分享按鈕 → 向下捲 → 「加入主畫面」</div>
-          </div>
-          <div class="pwa-step">
-            <span class="step-icon">🤖</span>
-            <div><strong>Android 用戶</strong><br>Chrome開啟 → 點擊右上角選單 → 「安裝應用程式」</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-box">
-        <h3>💾 資料管理</h3>
-        <p>你的資料只會儲存在本機瀏覽器。如需更換瀏覽器或設備，請先導出備份。</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-bottom: 12px;">導出 / 導入</h3>
-        <div class="data-actions">
-          <button class="btn btn-primary" id="exportBtn">📤 導出資料</button>
-          <button class="btn btn-secondary" id="importBtn">📥 導入資料</button>
-        </div>
-        <input type="file" id="importInput" accept=".json">
-      </div>
-
-      <div class="card">
-        <h3 style="margin-bottom: 12px;">資料狀態</h3>
-        <p style="font-size: 0.85rem; color: var(--text-dim);">
-          已擁有: <span id="toolOwned">0</span> 款<br>
-          最後更新: <span id="toolUpdated">-</span>
-        </p>
-        <button class="btn btn-outline" id="clearBtn" style="margin-top: 12px; color: var(--primary);">
-          🗑️ 清除所有資料
-        </button>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-bottom: 12px;">關於</h3>
-        <p style="font-size: 0.85rem; color: var(--text-dim);">
-          爆旋陀螺X 收藏工具 v1.0<br>
-          資料來源: 全球陀螺數據庫<br>
-          更新頻率: 每晚一次
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Add/Edit Modal -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <span class="modal-title" id="modalTitle">新增收藏</span>
-        <button class="modal-close" id="modalClose">×</button>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">選擇陀螺</label>
-        <select class="form-select" id="beybladeSelect"></select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">評分 (1-5 星)</label>
-        <div class="star-rating" id="starRating">
-          <span class="star" data-value="1">★</span>
-          <span class="star" data-value="2">★</span>
-          <span class="star" data-value="3">★</span>
-          <span class="star" data-value="4">★</span>
-          <span class="star" data-value="5">★</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">備註</label>
-        <textarea class="form-textarea" id="notesInput" placeholder="例如：購買價格、狀態、特殊備注..."></textarea>
-      </div>
-
-      <button class="btn btn-primary" id="saveBtn" style="width: 100%;">儲存</button>
+    <div class="stat-card">
+      <div class="num" id="statOwned">0</div>
+      <div class="label">已收藏</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="statT0">0</div>
+      <div class="label">🔥 T0 必買</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="statT1">0</div>
+      <div class="label">⭐ T1 優先</div>
     </div>
   </div>
 
-  <!-- Toast -->
-  <div class="toast" id="toast"></div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('personal')">📦 我的收藏</button>
+    <button class="tab" onclick="switchTab('global')">🌍 全球圖鑑</button>
+    <button class="tab" onclick="switchTab('tier')">🏆 評級榜</button>
+    <button class="tab" onclick="switchTab('combos')">🏅 冠軍組合</button>
+    <button class="tab" onclick="switchTab('parts')">🔩 零件圖鑑</button>
+  </div>
 
-  <script>
-    // ===== State =====
-    let globalDB = [];
-    let combos = [];
-    let parts = [];
-    let userData = { collection: [] };
-    let currentFilter = 'all';
-    let currentSearch = '';
-    let editingIndex = null;
-    let currentRating = 0;
+  <input type="text" class="search-box" id="searchBox" placeholder="🔍 搜尋名稱、編號、類型..." oninput="doSearch()">
 
-    // ===== Init =====
-    async function init() {
-      updateSyncStatus('loading');
-      
-      try {
-        // Load global data
-        const [dbRes, combosRes, partsRes] = await Promise.all([
-          fetch('data/global_db.json'),
-          fetch('data/combos.json'),
-          fetch('data/parts.json')
-        ]);
+  <div class="filters" id="tierFilters" style="display:none">
+    <span class="filter-chip active" onclick="filterTier('all')">全部</span>
+    <span class="filter-chip" onclick="filterTier('T0')">🔥 T0 必買</span>
+    <span class="filter-chip" onclick="filterTier('T1')">⭐ T1 優先</span>
+    <span class="filter-chip" onclick="filterTier('T2')">📌 T2 可考慮</span>
+    <span class="filter-chip" onclick="filterTier('T3')">💤 T3 收藏</span>
+  </div>
 
-        globalDB = await dbRes.json();
-        combos = await combosRes.json();
-        parts = await partsRes.json();
+  <div class="filters" id="typeFilters" style="display:none">
+    <span class="filter-chip active" onclick="filterType('all')">全部</span>
+    <span class="filter-chip" onclick="filterType('攻擊型')">⚔️ 攻擊</span>
+    <span class="filter-chip" onclick="filterType('防禦型')">🛡️ 防禦</span>
+    <span class="filter-chip" onclick="filterType('持久型')">💫 持久</span>
+    <span class="filter-chip" onclick="filterType('平衡型')">⚖️ 平衡</span>
+  </div>
 
-        // Load user data
-        const saved = localStorage.getItem('beybladeX_user');
-        if (saved) {
-          userData = JSON.parse(saved);
-        }
+  <div id="content"></div>
+</div>
 
-        updateSyncStatus('online');
-        renderAll();
-      } catch (e) {
-        console.error('Load error:', e);
-        updateSyncStatus('error');
-        showToast('載入失敗，請檢查網絡連接');
+<div class="detail-modal" id="detailModal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<button class="refresh-btn" id="refreshBtn" onclick="refreshData()" title="刷新數據">↻</button>
+
+<script>
+let personalData = {tops: []};
+let globalData = {tops: []};
+let combosData = {meta_combos: [], world_champion: null};
+let partsData = {ratchets: [], bits: []};
+let currentTab = 'personal';
+let currentFilter = 'all';
+
+async function loadData() {
+  try {
+    const [pRes, gRes, cRes, ptRes] = await Promise.all([
+      fetch('/api/personal').catch(() => ({json: () => ({tops: []})})),
+      fetch('/api/global').catch(() => ({json: () => ({tops: []})})),
+      fetch('/api/combos').catch(() => ({json: () => ({meta_combos: [], world_champion: null})})),
+      fetch('/api/parts').catch(() => ({json: () => ({ratchets: [], bits: []})}))
+    ]);
+    personalData = await pRes.json();
+    globalData = await gRes.json();
+    combosData = await cRes.json();
+    partsData = await ptRes.json();
+    updateStats();
+    render();
+  } catch (e) {
+    console.error('Load failed:', e);
+    document.getElementById('content').innerHTML = `
+      <div class="empty-state">
+        <div class="icon">⚠️</div>
+        <p>無法載入數據，請確認服務器運行中</p>
+        <p style="font-size:0.8rem;margin-top:8px;color:#666">錯誤: ${e.message}</p>
+      </div>`;
+  }
+}
+
+function updateStats() {
+  const g = globalData.tops || [];
+  const p = personalData.tops || [];
+  document.getElementById('statTotal').textContent = g.length;
+  document.getElementById('statOwned').textContent = p.length;
+  document.getElementById('statT0').textContent = g.filter(t => t.tier === 'T0').length;
+  document.getElementById('statT1').textContent = g.filter(t => t.tier === 'T1').length;
+}
+
+function getOwnedCodes() {
+  return new Set((personalData.tops || []).map(t => t.id));
+}
+
+function getBuyScore(tier) {
+  const map = {'T0': 5, 'T1': 4, 'T2': 3, 'T3': 2};
+  return map[tier] || 2;
+}
+
+function renderBuyScore(tier) {
+  const score = getBuyScore(tier);
+  const tierLabels = {'T0': '必買', 'T0.5': '推薦', 'T1': '建議', 'T2': '可考慮', 'T3': '非必要'};
+  const dots = Array(5).fill(0).map((_,i) =>
+    `<div class="dot ${i < score ? 'on' : 'off'}"></div>`
+  ).join('');
+  const label = tierLabels[tier] || '普通';
+  return `${dots}<span class="buy-score-label">${label} ${tier}</span>`;
+}
+
+function renderCard(t, isPersonal) {
+  const owned = getOwnedCodes();
+  const isOwned = owned.has(t.code || t.id);
+  const tier = t.tier || 'T3';
+  const code = t.code || t.id;
+  const name = t.name_hk || t.name_en || 'Unknown';
+  const nameEn = t.name_en || '';
+  const nameJp = t.name_jp || '';
+  const lock = t.lock || '—';
+  const axis = t.axis || '?';
+  const axisType = t.axis_type || '';
+  const spin = t.spin || '右';
+  const type = t.type || '?';
+
+  const img = t.image ? `<img src="${t.image}" alt="${name}" style="width:100%;max-height:120px;object-fit:contain;margin-bottom:12px;border-radius:8px;">` : '';
+  return `
+    <div class="card ${tier}${isOwned ? ' owned' : ''}" onclick="showDetail('${code}', ${isPersonal})">
+      <div class="card-header">
+        <span class="card-id">${code}</span>
+        <span class="card-tier tier-${tier}">${tier}</span>
+      </div>
+      ${img}
+      <div class="card-name">${name}</div>
+      ${nameJp ? `<div class="card-name-jp">${nameJp}</div>` : ''}
+      <div class="specs">
+        <div class="spec"><span class="spec-label">🔒 固鎖</span><span class="spec-value">${lock}</span></div>
+        <div class="spec"><span class="spec-label">⚙️ 中軸</span><span class="spec-value">${axis}${axisType ? ` (${axisType})` : ''}</span></div>
+        <div class="spec"><span class="spec-label">🔄 迴旋</span><span class="spec-value">${spin}</span></div>
+        <div class="spec"><span class="spec-label">📂 類型</span><span class="spec-value">${type}</span></div>
+      </div>
+      ${isOwned
+        ? `<div class="owned-footer"><span class="owned-tag">✓ 已擁有</span><span class="tier-inline tier-${tier}">📊 ${tier}</span></div>`
+        : `<div class="buy-score">${renderBuyScore(tier)}</div>`
       }
-    }
+    </div>
+  `;
+}
 
-    // ===== Sync Status =====
-    function updateSyncStatus(status) {
-      const dot = document.getElementById('syncDot');
-      const text = document.getElementById('syncText');
-      
-      dot.className = 'sync-dot';
-      if (status === 'online') {
-        text.textContent = '已同步';
-      } else if (status === 'offline') {
-        dot.classList.add('offline');
-        text.textContent = '離線模式';
-      } else if (status === 'error') {
-        dot.classList.add('error');
-        text.textContent = '載入失敗';
-      } else {
-        text.textContent = '載入中...';
-      }
-    }
+function render() {
+  const el = document.getElementById('content');
+  const search = document.getElementById('searchBox').value.toLowerCase();
+  const owned = getOwnedCodes();
 
-    // ===== Render =====
-    function renderAll() {
-      renderCollection();
-      renderCatalog();
-      renderCombos();
-      renderStats();
-    }
-
-    function renderStats() {
-      const owned = userData.collection.length;
-      const total = globalDB.length;
-      const avgRating = owned > 0 
-        ? (userData.collection.reduce((sum, c) => sum + c.rating, 0) / owned).toFixed(1)
-        : '-';
-
-      document.getElementById('statOwned').textContent = owned;
-      document.getElementById('statTotal').textContent = total;
-      document.getElementById('statRating').textContent = avgRating;
-      document.getElementById('toolOwned').textContent = owned;
-      document.getElementById('toolUpdated').textContent = userData.lastUpdated || '-';
-    }
-
-    function renderCollection() {
-      const container = document.getElementById('collectionList');
-      
-      let filtered = globalDB.filter(b => {
-        const inCollection = userData.collection.some(c => c.id === b.id);
-        
-        if (currentFilter === 'owned') return inCollection;
-        if (currentFilter === 't0') return b.rating === 'T0';
-        if (currentFilter === 't1') return b.rating === 'T1';
-        if (currentFilter === 't2') return b.rating === 'T2';
-        return true;
-      });
-
-      if (currentSearch) {
-        const q = currentSearch.toLowerCase();
-        filtered = filtered.filter(b => 
-          b.name.toLowerCase().includes(q) ||
-          b.id.toLowerCase().includes(q) ||
-          (b.hkName && b.hkName.toLowerCase().includes(q))
-        );
-      }
-
-      if (filtered.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">📭</div>
-            <p>暫無收藏<br><span style="font-size: 0.8rem;">到圖鑑新增你的第一款陀螺吧！</span></p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = filtered.map(b => {
-        const inCollection = userData.collection.find(c => c.id === b.id);
-        const userRating = inCollection ? '★'.repeat(inCollection.rating) : '';
-        
-        return `
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <span class="beyblade-id">${b.id}</span>
-                ${inCollection ? '<span class="owned-badge">✓ 已擁有</span>' : ''}
-              </div>
-              <span class="rating ${getRatingClass(b.rating)}">${b.ratingDisplay || b.rating}</span>
-            </div>
-            <div class="beyblade-name">${b.hkName || b.name}</div>
-            <div class="beyblade-type">${b.type} · <span class="spin">${b.spin}</span></div>
-            ${b.gear || b.axis ? `
-              <div class="combo-parts">
-                ${b.gear ? `<span class="combo-part">⚙️ ${b.gear}</span>` : ''}
-                ${b.axis ? `<span class="combo-part">🔩 ${b.axis}</span>` : ''}
-              </div>
-            ` : ''}
-            ${b.recIndex ? `
-              <div class="rec-index">
-                ${[1,2,3,4,5].map(i => `<span class="rec-dot ${i <= b.recIndex ? 'active' : ''}"></span>`).join('')}
-              </div>
-            ` : ''}
-            ${userRating ? `<div style="margin-top: 6px; color: var(--warning);">${userRating}</div>` : ''}
-            <div class="actions">
-              ${inCollection 
-                ? `<button class="btn btn-secondary" onclick="editBeyblade('${b.id}')">✏️ 編輯</button>
-                   <button class="btn btn-outline" onclick="removeBeyblade('${b.id}')">🗑️ 移除</button>`
-                : `<button class="btn btn-primary" onclick="addBeyblade('${b.id}')">➕ 加入</button>`
-              }
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function renderCatalog() {
-      const container = document.getElementById('catalogList');
-      const q = document.getElementById('catalogSearch').value.toLowerCase();
-      
-      let filtered = globalDB;
-      if (q) {
-        filtered = filtered.filter(b => 
-          b.name.toLowerCase().includes(q) ||
-          b.id.toLowerCase().includes(q) ||
-          (b.hkName && b.hkName.toLowerCase().includes(q))
-        );
-      }
-
-      container.innerHTML = filtered.map(b => `
-        <div class="card">
-          <div class="card-header">
-            <span class="beyblade-id">${b.id}</span>
-            <span class="rating ${getRatingClass(b.rating)}">${b.ratingDisplay || b.rating}</span>
-          </div>
-          <div class="beyblade-name">${b.hkName || b.name}</div>
-          <div class="beyblade-type">${b.type} · <span class="spin">${b.spin}</span></div>
-          ${b.gear || b.axis ? `
-            <div class="combo-parts">
-              ${b.gear ? `<span class="combo-part">⚙️ ${b.gear}</span>` : ''}
-              ${b.axis ? `<span class="combo-part">🔩 ${b.axis}</span>` : ''}
-            </div>
-          ` : ''}
-          ${b.recIndex ? `<div class="rec-index">${[1,2,3,4,5].map(i => `<span class="rec-dot ${i <= b.recIndex ? 'active' : ''}"></span>`).join('')}</div>` : ''}
-        </div>
-      `).join('');
-    }
-
-    function renderCombos() {
-      const container = document.getElementById('combosList');
-      
-      container.innerHTML = combos.map(c => `
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <span class="beyblade-id">${c.id}</span>
-            </div>
-            <span class="rating ${getRatingClass(c.rating)}">${c.rating}</span>
-          </div>
-          <div class="beyblade-name">${c.name}</div>
-          <div class="combo-parts">
-            <span class="combo-part">⚙️ ${c.bit}</span>
-            <span class="combo-part">⚙️ ${c.gear}</span>
-            <span class="combo-part">⚙️ ${c.axis}</span>
-          </div>
-          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 8px;">${c.note}</p>
-        </div>
-      `).join('');
-    }
-
-    // ===== Rating Class =====
-    function getRatingClass(rating) {
-      if (rating === 'T0') return 't0';
-      if (rating === 'T0.5') return 't0';
-      if (rating === 'T1') return 't1';
-      if (rating === 'T1.5') return 't1';
-      if (rating === 'T2') return 't2';
-      if (rating === 'T2.5') return 't2';
-      if (rating === 'T3') return 't3';
-      return 't4';
-    }
-
-    // ===== Modal =====
-    function openModal(title, presetId = null) {
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalOverlay').classList.add('active');
-      
-      // Populate select
-      const select = document.getElementById('beybladeSelect');
-      select.innerHTML = globalDB.map(b => 
-        `<option value="${b.id}" ${b.id === presetId ? 'selected' : ''}>${b.id} - ${b.hkName || b.name}</option>`
-      ).join('');
-
-      if (presetId) select.value = presetId;
-
-      // Reset form
-      currentRating = 0;
-      document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
-      document.getElementById('notesInput').value = '';
-
-      if (presetId) {
-        const existing = userData.collection.find(c => c.id === presetId);
-        if (existing) {
-          currentRating = existing.rating;
-          for (let i = 1; i <= existing.rating; i++) {
-            document.querySelector(`.star[data-value="${i}"]`).classList.add('active');
-          }
-          document.getElementById('notesInput').value = existing.notes || '';
-        }
-      }
-    }
-
-    function closeModal() {
-      document.getElementById('modalOverlay').classList.remove('active');
-      editingIndex = null;
-    }
-
-    // ===== Actions =====
-    function addBeyblade(id) {
-      openModal('新增收藏', id);
-    }
-
-    function editBeyblade(id) {
-      editingIndex = userData.collection.findIndex(c => c.id === id);
-      openModal('編輯收藏', id);
-    }
-
-    function removeBeyblade(id) {
-      if (!confirm('確定要移除这款陀螺吗？')) return;
-      userData.collection = userData.collection.filter(c => c.id !== id);
-      saveUserData();
-      renderAll();
-      showToast('已移除');
-    }
-
-    function saveBeyblade() {
-      const id = document.getElementById('beybladeSelect').value;
-      const notes = document.getElementById('notesInput').value;
-
-      if (!currentRating) {
-        showToast('請選擇評分');
-        return;
-      }
-
-      if (editingIndex !== null) {
-        userData.collection[editingIndex] = { id, rating: currentRating, notes, updated: new Date().toISOString() };
-      } else {
-        // Check if already exists
-        const existing = userData.collection.findIndex(c => c.id === id);
-        if (existing >= 0) {
-          userData.collection[existing] = { id, rating: currentRating, notes, updated: new Date().toISOString() };
-        } else {
-          userData.collection.push({ id, rating: currentRating, notes, added: new Date().toISOString() });
-        }
-      }
-
-      saveUserData();
-      closeModal();
-      renderAll();
-      showToast(editingIndex !== null ? '已更新' : '已加入收藏');
-    }
-
-    function saveUserData() {
-      userData.lastUpdated = new Date().toLocaleString('zh-HK');
-      localStorage.setItem('beybladeX_user', JSON.stringify(userData));
-    }
-
-    // ===== Data Management =====
-    function exportData() {
-      const dataStr = JSON.stringify(userData, null, 2);
-      const blob = new Blob([dataStr], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `beyblade-x-backup-${new Date().toISOString().slice(0,10)}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast('已導出備份');
-    }
-
-    function importData(file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const imported = JSON.parse(e.target.result);
-          if (imported.collection) {
-            userData = imported;
-            saveUserData();
-            renderAll();
-            showToast('已導入成功');
-          } else {
-            showToast('檔案格式不正確');
-          }
-        } catch (err) {
-          showToast('導入失敗');
-        }
-      };
-      reader.readAsText(file);
-    }
-
-    function clearAllData() {
-      if (!confirm('確定要清除所有資料嗎？此操作無法撤銷。')) return;
-      userData = { collection: [] };
-      saveUserData();
-      renderAll();
-      showToast('已清除所有資料');
-    }
-
-    // ===== Toast =====
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2500);
-    }
-
-    // ===== Event Listeners =====
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
+  let items = [];
+  if (currentTab === 'personal') {
+    items = (personalData.tops || []).filter(t => {
+      if (!search) return true;
+      const text = JSON.stringify(t).toLowerCase();
+      return text.includes(search);
     });
-
-    document.querySelectorAll('.filter-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        currentFilter = chip.dataset.filter;
-        renderCollection();
-      });
+    if (items.length === 0) {
+      el.innerHTML = `<div class="empty-state"><div class="icon">📭</div><p>暫無收藏</p><p style="font-size:0.85rem;color:#666;margin-top:8px">去「全球圖鑑」添加陀螺吧！</p></div>`;
+      return;
+    }
+    el.innerHTML = `
+      <div class="section-title">📦 我的收藏 (${items.length}款)</div>
+      <div class="grid">${items.map(t => renderCard(t, true)).join('')}</div>
+    `;
+  } else if (currentTab === 'global') {
+    items = (globalData.tops || []).filter(t => {
+      if (currentFilter !== 'all' && t.type !== currentFilter) return false;
+      if (!search) return true;
+      const text = JSON.stringify(t).toLowerCase();
+      return text.includes(search);
     });
-
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      currentSearch = e.target.value;
-      renderCollection();
+    if (items.length === 0) {
+      el.innerHTML = `<div class="empty-state"><div class="icon">🔍</div><p>無匹配結果</p></div>`;
+      return;
+    }
+    el.innerHTML = `
+      <div class="section-title">🌍 全球圖鑑 (${items.length}/${globalData.tops?.length || 0}款)</div>
+      <div class="grid">${items.map(t => renderCard(t, false)).join('')}</div>
+    `;
+  } else if (currentTab === 'combos') {
+    renderCombos();
+  } else if (currentTab === 'parts') {
+    renderParts();
+  } else if (currentTab === 'tier') {
+    items = (globalData.tops || []).filter(t => {
+      if (currentFilter !== 'all' && t.tier !== currentFilter) return false;
+      if (!search) return true;
+      const text = JSON.stringify(t).toLowerCase();
+      return text.includes(search);
+    }).sort((a, b) => {
+      const tierOrder = {'T0': 0, 'T1': 1, 'T2': 2, 'T3': 3};
+      return (tierOrder[a.tier] || 4) - (tierOrder[b.tier] || 4);
     });
+    if (items.length === 0) {
+      el.innerHTML = `<div class="empty-state"><div class="icon">🏆</div><p>無此評級陀螺</p></div>`;
+      return;
+    }
+    el.innerHTML = `
+      <div class="section-title">🏆 評級榜 (${items.length}款)</div>
+      <div class="grid">${items.map(t => renderCard(t, false)).join('')}</div>
+    `;
+  }
+}
 
-    document.getElementById('catalogSearch').addEventListener('input', renderCatalog);
+function switchTab(tab) {
+  currentTab = tab;
+  currentFilter = 'all';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
 
-    document.getElementById('modalClose').addEventListener('click', closeModal);
-    document.getElementById('modalOverlay').addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) closeModal();
-    });
+  document.getElementById('tierFilters').style.display = tab === 'tier' ? 'flex' : 'none';
+  document.getElementById('typeFilters').style.display = tab === 'global' ? 'flex' : 'none';
 
-    document.querySelectorAll('.star').forEach(star => {
-      star.addEventListener('click', () => {
-        currentRating = parseInt(star.dataset.value);
-        document.querySelectorAll('.star').forEach((s, i) => {
-          s.classList.toggle('active', i < currentRating);
-        });
-      });
-    });
+  // Reset filter chips
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.filter-chip').forEach(c => {
+    if (c.textContent.includes('全部')) c.classList.add('active');
+  });
 
-    document.getElementById('saveBtn').addEventListener('click', saveBeyblade);
-    document.getElementById('exportBtn').addEventListener('click', exportData);
-    document.getElementById('importBtn').addEventListener('click', () => {
-      document.getElementById('importInput').click();
-    });
-    document.getElementById('importInput').addEventListener('change', (e) => {
-      if (e.target.files[0]) importData(e.target.files[0]);
-    });
-    document.getElementById('clearBtn').addEventListener('click', clearAllData);
+  render();
+}
 
-    // ===== Start =====
-    init();
-  </script>
+function renderParts() {
+  const el = document.getElementById('content');
+  
+  let html = '<div style="margin-bottom:24px">';
+  
+  // Recommended combos section FIRST
+  if (partsData.recommended_combos && partsData.recommended_combos.length > 0) {
+    html += '<div class="section-title">🏆 推薦組合（你現有的零件）</div>';
+    html += '<div class="grid">';
+    for (const c of partsData.recommended_combos) {
+      const tierColor = c.rating >= 130 ? '#ff6b6b' : c.rating >= 100 ? '#feca57' : '#48dbfb';
+      html += `<div class="card" style="cursor:default;border:1px solid ${tierColor}33">`;
+      html += `<div class="card-header"><span class="card-name">${c.name}</span><span class="card-tier" style="background:${tierColor}22;color:${tierColor}">評分 ${c.rating}</span></div>`;
+      html += `<div style="margin-top:12px;padding:12px;background:#0f0f23;border-radius:8px">`;
+      html += `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center">`;
+      html += `<div><div style="color:#888;font-size:0.7rem">刃片</div><div style="color:#6c5ce7;font-weight:bold">${c.blade}</div><div style="color:#666;font-size:0.7rem">${c.blade_source}</div></div>`;
+      html += `<div><div style="color:#888;font-size:0.7rem">齒輪</div><div style="color:#feca57;font-weight:bold">${c.ratchet}</div><div style="color:#666;font-size:0.7rem">${c.ratchet_source}</div></div>`;
+      html += `<div><div style="color:#888;font-size:0.7rem">中軸</div><div style="color:#48dbfb;font-weight:bold">${c.bit}</div><div style="color:#666;font-size:0.7rem">${c.bit_source}</div></div>`;
+      html += `</div></div>`;
+      html += `<div style="font-size:0.8rem;color:#888;margin-top:8px">${c.description}</div>`;
+      html += '</div>';
+    }
+    html += '</div></div>';
+  }
+  
+  // Ratchets section
+  html += '<div class="section-title" style="margin-top:24px">⚙️ 齒輪 (Ratchet)</div>';
+  html += '<div class="grid">';
+  for (const r of partsData.ratchets) {
+    html += `<div class="card" style="cursor:default">`;
+    html += `<div style="text-align:center;margin-bottom:12px;background:#0f0f23;border-radius:12px;padding:16px">`;
+    html += `<img src="${r.image}" style="max-width:100px;max-height:100px;object-fit:contain" onerror="this.parentElement.innerHTML='<div style=color:#666>圖片載入失敗</div>'">`;
+    html += `</div>`;
+    html += `<div class="card-header"><span class="card-name">${r.code}</span><span class="card-tier">齒輪</span></div>`;
+    html += `<div class="specs" style="margin-top:8px">`;
+    html += `<div class="spec"><span class="spec-label">名稱</span><span class="spec-value">${r.name}</span></div>`;
+    html += `<div class="spec"><span class="spec-label">類型</span><span class="spec-value">${r.type}</span></div>`;
+    html += `<div class="spec"><span class="spec-label">適用</span><span class="spec-value">${r.best_for}</span></div>`;
+    html += `</div>`;
+    html += `<div style="font-size:0.8rem;color:#888;margin-top:8px">📌 來源: ${r.source}</div>`;
+    html += `</div>`;
+  }
+  html += '</div></div>';
+  
+  // Bits section
+  html += '<div style="margin-bottom:24px">';
+  html += '<div class="section-title" style="margin-top:24px">🎯 中軸 (Bit)</div>';
+  html += '<div class="grid">';
+  for (const b of partsData.bits) {
+    html += `<div class="card" style="cursor:default">`;
+    html += `<div style="text-align:center;margin-bottom:12px;background:#0f0f23;border-radius:12px;padding:20px;min-height:220px;display:flex;align-items:center;justify-content:center">`;
+    html += `<img src="${b.image}" style="max-width:100px;max-height:180px;object-fit:contain" onerror="this.parentElement.innerHTML='<div style=color:#666>圖片載入失敗</div>'">`;
+    html += `</div>`;
+    html += `<div class="card-header"><span class="card-name">${b.code}</span><span class="card-tier">中軸</span></div>`;
+    html += `<div class="specs" style="margin-top:8px">`;
+    html += `<div class="spec"><span class="spec-label">名稱</span><span class="spec-value">${b.name}</span></div>`;
+    html += `<div class="spec"><span class="spec-label">類型</span><span class="spec-value">${b.type}</span></div>`;
+    html += `<div class="spec"><span class="spec-label">適用</span><span class="spec-value">${b.best_for}</span></div>`;
+    html += `</div>`;
+    html += `<div style="font-size:0.8rem;color:#888;margin-top:8px">📌 來源: ${b.source}</div>`;
+    html += `</div>`;
+  }
+  html += '</div></div>';
+  
+  // Combination guide (basic version)
+  html += '<div style="background:#1a1a2e;border-radius:12px;padding:20px;border:1px solid #2a2a4a">';
+  html += '<div style="color:#6c5ce7;font-weight:bold;font-size:1rem;margin-bottom:16px">💡 基礎配搭建議</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">';
+  
+  const combos = [
+    {type: '🔥 攻擊型', combo: '3-80齒輪 + S(尖)中軸', best: '騎士護盾/猛獁長牙'},
+    {type: '🛡️ 防禦型', combo: '5-60齒輪 + O(珠)中軸', best: '幻神護甲(原裝)'},
+    {type: '⏱️ 持久型', combo: '9-65齒輪 + B(球)中軸', best: '時鐘幽景(原裝)'},
+    {type: '⚖️ 平衡型', combo: '7-60齒輪 + B(球)中軸', best: '猛獁長牙(跨配)'}
+  ];
+  
+  for (const c of combos) {
+    html += `<div style="background:#0f0f23;border-radius:8px;padding:12px">`;
+    html += `<div style="color:#feca57;font-weight:bold;margin-bottom:4px">${c.type}</div>`;
+    html += `<div style="color:#fff;font-size:0.9rem">${c.combo}</div>`;
+    html += `<div style="color:#888;font-size:0.8rem;margin-top:4px">適用: ${c.best}</div>`;
+    html += `</div>`;
+  }
+  html += '</div></div>';
+  
+  el.innerHTML = html;
+}
+
+function renderCombos() {
+  const el = document.getElementById('content');
+  const search = document.getElementById('searchBox').value.toLowerCase();
+  const owned = getOwnedCodes();
+
+  let html = '';
+
+  // World Champion section
+  const wc = combosData.world_champion;
+  if (wc && wc.gold) {
+    html += '<div style="margin-bottom:24px">';
+    html += '<div class="section-title">🏆 2025 世界冠軍組合</div>';
+    html += '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">';
+    const medals = [['gold', '🥇'], ['silver', '🥈'], ['bronze', '🥉']];
+    for (const [key, medal] of medals) {
+      const p = wc[key];
+      if (!p) continue;
+      html += `<div style="background:#1a1a2e;border-radius:12px;padding:16px;text-align:center;border:1px solid #2a2a4a">`;
+      html += `<div style="font-size:1.5rem;margin-bottom:4px">${medal}</div>`;
+      html += `<div style="color:#fff;font-weight:bold;font-size:0.9rem">${p.player}</div>`;
+      html += `<div style="color:#666;font-size:0.75rem">`;
+      for (const combo of p.deck || []) {
+        html += `<div style="margin-top:4px">${combo.blade} ${combo.ratchet}${combo.bit}</div>`;
+      }
+      html += `</div></div>`;
+    }
+    html += '</div></div>';
+  }
+
+  // Meta combos section
+  const filtered = (combosData.meta_combos || []).filter(c => {
+    if (!search) return true;
+    return JSON.stringify(c).toLowerCase().includes(search);
+  });
+
+  if (filtered.length > 0) {
+    html += '<div style="margin-bottom:24px">';
+    html += '<div class="section-title">⚡ 2025 Meta 強勢組合</div>';
+    html += '<div class="grid">';
+    for (const c of filtered) {
+      const tierColor = c.tier === 'S+' ? '#ff6b6b' : c.tier === 'S' ? '#feca57' : '#48dbfb';
+      html += `<div class="card" style="cursor:default">`;
+      html += `<div class="card-header"><span class="card-name">${c.name}</span>`;
+      html += `<span class="card-tier" style="background:rgba(255,107,107,0.2);color:${tierColor}">${c.tier}</span></div>`;
+      html += `<div class="specs" style="margin-top:8px">`;
+      html += `<div class="spec"><span class="spec-label">刃片</span><span class="spec-value">${c.blade}</span></div>`;
+      html += `<div class="spec"><span class="spec-label">拉契特</span><span class="spec-value">${c.ratchet}</span></div>`;
+      html += `<div class="spec"><span class="spec-label">中軸</span><span class="spec-value">${c.bit}</span></div>`;
+      html += `</div>`;
+      html += `<div style="font-size:0.8rem;color:#888;margin-top:8px">${c.note}</div>`;
+      html += `</div>`;
+    }
+    html += '</div></div>';
+  }
+
+  // Key parts section
+  const bits = combosData.world_champion?.key_parts?.bits || {};
+  if (Object.keys(bits).length > 0) {
+    html += '<div style="margin-bottom:24px">';
+    html += '<div class="section-title">🔧 關鍵配件攻略</div>';
+    for (const [bit, desc] of Object.entries(bits)) {
+      html += `<div style="background:#1a1a2e;border-radius:12px;padding:12px;margin-bottom:8px;border:1px solid #2a2a4a">`;
+      html += `<span style="color:#6c5ce7;font-weight:bold">${bit}</span>`;
+      html += `<span style="color:#888;margin-left:8px">${desc}</span>`;
+      html += `</div>`;
+    }
+    html += '</div>';
+  }
+
+  if (!html) {
+    el.innerHTML = '<div class="empty-state"><div class="icon">🏅</div><p>暫無冠軍組合資料</p></div>';
+    return;
+  }
+
+  el.innerHTML = html;
+}
+
+function filterTier(tier) {
+  currentFilter = tier;
+  document.querySelectorAll('#tierFilters .filter-chip').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  render();
+}
+
+function filterType(type) {
+  currentFilter = type;
+  document.querySelectorAll('#typeFilters .filter-chip').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  render();
+}
+
+function doSearch() {
+  render();
+}
+
+function showDetail(code, isPersonal) {
+  const data = isPersonal ? personalData : globalData;
+  const t = (data.tops || []).find(x => (x.code || x.id) === code);
+  if (!t) return;
+
+  const owned = getOwnedCodes();
+  const isOwned = owned.has(code);
+  const tier = t.tier || 'T3';
+  const score = getBuyScore(tier);
+  const scoreLabels = {5: '🔥 必買', 4: '⭐ 推薦', 3: '📌 可考慮', 2: '💤 謹慎'};
+
+  let reasons = '';
+  if (tier === 'T0') reasons = '✅ meta最強級，競技場必備<br>✅ 保值/升值潛力高<br>✅ 市場需求極大';
+  else if (tier === 'T1') reasons = '✅ 高競爭力，可與T0抗衡<br>✅ 實戰性能優秀<br>✅ CP值高';
+  else if (tier === 'T2') reasons = '✅ 穩定可用<br>⚠️ 非meta主流，收藏為主<br>💡 如果你係fans或者收集系列可以買';
+  else reasons = '⚠️ 非競技向<br>💡 收藏用為主';
+
+  document.getElementById('modalBody').innerHTML = `
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-size:0.9rem;color:#6c5ce7;font-weight:bold">${code}</div>
+      <h2 style="color:#fff;margin:8px 0">${t.name_hk || t.name_en || 'Unknown'}</h2>
+      ${t.name_jp ? `<div style="color:#666;font-size:0.9rem">${t.name_jp}</div>` : ''}
+      ${isOwned ? '<span style="display:inline-block;margin-top:8px;padding:4px 12px;background:#1dd1a1;color:#0f0f23;border-radius:12px;font-size:0.8rem;font-weight:bold">✓ 已擁有</span>' : ''}
+    </div>
+
+    <div style="background:#0f0f23;border-radius:12px;padding:16px;margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <span style="color:#888">推薦指數</span>
+        <span style="font-weight:bold;color:#${score >= 4 ? '1dd1a1' : score >= 3 ? 'feca57' : '8395a7'}">${scoreLabels[score]} ${score}/5</span>
+      </div>
+      ${renderBuyScore(tier)}
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px">
+      <div style="background:#0f0f23;border-radius:12px;padding:12px">
+        <div style="color:#666;font-size:0.8rem">🔒 固鎖</div>
+        <div style="color:#fff;font-weight:bold;font-size:1.1rem">${t.lock || '—'}</div>
+      </div>
+      <div style="background:#0f0f23;border-radius:12px;padding:12px">
+        <div style="color:#666;font-size:0.8rem">⚙️ 中軸</div>
+        <div style="color:#fff;font-weight:bold;font-size:1.1rem">${t.axis || '?'}${t.axis_type ? ` <span style="font-size:0.8rem;color:#888">(${t.axis_type})</span>` : ''}</div>
+      </div>
+      <div style="background:#0f0f23;border-radius:12px;padding:12px">
+        <div style="color:#666;font-size:0.8rem">🔄 迴旋</div>
+        <div style="color:#fff;font-weight:bold;font-size:1.1rem">${t.spin === 'L' ? '左' : t.spin === 'R' ? '右' : t.spin || '右'}</div>
+      </div>
+      <div style="background:#0f0f23;border-radius:12px;padding:12px">
+        <div style="color:#666;font-size:0.8rem">📂 類型</div>
+        <div style="color:#fff;font-weight:bold;font-size:1.1rem">${t.type || '?'}</div>
+      </div>
+    </div>
+
+    ${t.meta || t.characteristics ? `
+    <div style="background:#0f0f23;border-radius:12px;padding:16px;margin-bottom:16px">
+      <div style="color:#666;font-size:0.8rem;margin-bottom:8px">📝 評價</div>
+      <div style="color:#ccc;font-size:0.9rem;line-height:1.6">${t.meta || t.characteristics}</div>
+    </div>
+    ` : ''}
+
+    <div style="background:#0f0f23;border-radius:12px;padding:16px">
+      <div style="color:#666;font-size:0.8rem;margin-bottom:8px">💰 購買分析</div>
+      <div style="color:#ccc;font-size:0.9rem;line-height:1.6">${reasons}</div>
+    </div>
+
+    ${t.release ? `
+    <div style="margin-top:16px;text-align:center;color:#666;font-size:0.8rem">
+      📅 發售: ${t.release}${t.price ? ` | ¥${t.price}` : ''}
+    </div>
+    ` : ''}
+  `;
+  document.getElementById('detailModal').classList.add('show');
+}
+
+function closeModal(e) {
+  if (!e || e.target.id === 'detailModal' || e.target.className === 'modal-close') {
+    document.getElementById('detailModal').classList.remove('show');
+  }
+}
+
+function refreshData() {
+  const btn = document.getElementById('refreshBtn');
+  btn.classList.add('spin');
+  loadData().then(() => {
+    setTimeout(() => btn.classList.remove('spin'), 500);
+  });
+}
+
+// Auto refresh every 30 seconds
+setInterval(loadData, 30000);
+
+// Service Worker registration for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((reg) => console.log('SW registered:', reg.scope))
+      .catch((err) => console.log('SW registration failed:', err));
+  });
+}
+
+// Initial load
+loadData();
+</script>
 </body>
 </html>
