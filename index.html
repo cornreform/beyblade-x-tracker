@@ -670,6 +670,7 @@ function showDetail(code, isPersonal) {
 
   document.getElementById('modalBody').innerHTML = `
     <div style="text-align:center;margin-bottom:20px">
+      ${t.image ? `<img src="${t.image}" alt="${name}" style="width:150px;max-height:150px;object-fit:contain;margin-bottom:12px;border-radius:12px;">` : ''}
       <div style="font-size:0.9rem;color:#6c5ce7;font-weight:bold">${code}</div>
       <h2 style="color:#fff;margin:8px 0">${t.name_hk || t.name_en || 'Unknown'}</h2>
       ${t.name_jp ? `<div style="color:#666;font-size:0.9rem">${t.name_jp}</div>` : ''}
@@ -720,8 +721,47 @@ function showDetail(code, isPersonal) {
       📅 發售: ${t.release}${t.price ? ` | ¥${t.price}` : ''}
     </div>
     ` : ''}
+
+    <div style="margin-top:20px;text-align:center">
+      ${isOwned
+        ? `<button onclick="removeFromCollection('${code}')" style="padding:12px 24px;background:#ff6b6b;color:#fff;border:none;border-radius:12px;font-size:1rem;cursor:pointer;font-weight:bold">✕ 移除收藏</button>`
+        : `<button onclick="addToCollection('${code}')" style="padding:12px 24px;background:#1dd1a1;color:#0f0f23;border:none;border-radius:12px;font-size:1rem;cursor:pointer;font-weight:bold">✓ 加入收藏</button>`
+      }
+    </div>
   `;
   document.getElementById('detailModal').classList.add('show');
+}
+
+async function addToCollection(code) {
+  const t = globalData.tops.find(x => (x.code || x.id) === code);
+  if (!t) return;
+  try {
+    const res = await fetch('/api/personal/add', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(t)
+    });
+    const result = await res.json();
+    if (result.ok) {
+      await refreshData();
+      showDetail(code, false);
+    }
+  } catch(e) { console.error(e); }
+}
+
+async function removeFromCollection(code) {
+  try {
+    const res = await fetch('/api/personal/remove', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({code})
+    });
+    const result = await res.json();
+    if (result.ok) {
+      await refreshData();
+      showDetail(code, false);
+    }
+  } catch(e) { console.error(e); }
 }
 
 function closeModal(e) {
