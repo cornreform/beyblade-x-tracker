@@ -7,7 +7,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-01 龍皇冠",
+    "gear": "3-60 F",
+    "axis": "F (Flat)"
   },
   {
     "id": "BX-02",
@@ -17,7 +20,10 @@
     "spin": "右",
     "rating": "T3",
     "recIndex": 2,
-    "ratingDisplay": "一般"
+    "ratingDisplay": "一般",
+    "bit": "BX-02 暗影軌道",
+    "gear": "4-60 T",
+    "axis": "T (Taper)"
   },
   {
     "id": "BX-03",
@@ -27,7 +33,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-03 風暴天馬",
+    "gear": "4-80 B",
+    "axis": "B (Ball)"
   },
   {
     "id": "BX-04",
@@ -37,7 +46,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-04 疾風獅鷲",
+    "gear": "3-80 N",
+    "axis": "N (Needle)"
   },
   {
     "id": "BX-05",
@@ -47,7 +59,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-05 幽靈獵戶",
+    "gear": "4-80 B",
+    "axis": "B (Ball)"
   },
   {
     "id": "BX-06",
@@ -57,7 +72,10 @@
     "spin": "左",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-06 閃電海神",
+    "gear": "3-80 N",
+    "axis": "N (Needle)"
   },
   {
     "id": "BX-07",
@@ -67,7 +85,10 @@
     "spin": "右",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "BX-07 水晶比拉",
+    "gear": "4-80 HN",
+    "axis": "HN (High Needle)"
   },
   {
     "id": "BX-08",
@@ -77,7 +98,10 @@
     "spin": "左",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-08 泰坦冥王",
+    "gear": "4-80 HN",
+    "axis": "HN (High Needle)"
   },
   {
     "id": "BX-09",
@@ -87,7 +111,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-09 新星巴羅",
+    "gear": "4-80 HN",
+    "axis": "HN (High Needle)"
   },
   {
     "id": "BX-10",
@@ -97,7 +124,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-10 銀河新星",
+    "gear": "5-60 P",
+    "axis": "P (Point)"
   },
   {
     "id": "BX-11",
@@ -107,7 +137,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-11 流星V龍",
+    "gear": "5-80 O",
+    "axis": "O (Orb)"
   },
   {
     "id": "BX-12",
@@ -117,7 +150,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-12 太陽普羅米",
+    "gear": "3-80 S",
+    "axis": "S (Spike)"
   },
   {
     "id": "BX-13",
@@ -127,7 +163,10 @@
     "spin": "左",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "BX-13 黑暗毀滅",
+    "gear": "4-80 HN",
+    "axis": "HN (High Needle)"
   },
   {
     "id": "BX-14",
@@ -137,7 +176,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-14 許珀里翁",
+    "gear": "3-60 LF",
+    "axis": "LF (Low Flat)"
   },
   {
     "id": "BX-15",
@@ -147,7 +189,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-15 阿斯特萊",
+    "gear": "5-60 P",
+    "axis": "P (Point)"
   },
   {
     "id": "BX-16",
@@ -157,7 +202,10 @@
     "spin": "左",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "BX-16 日蝕",
+    "gear": "5-80 O",
+    "axis": "O (Orb)"
   },
   {
     "id": "BX-17",
@@ -167,7 +215,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-17 宇宙天馬",
+    "gear": "3-60 F",
+    "axis": "F (Flat)"
   },
   {
     "id": "BX-18",
@@ -177,7 +228,10 @@
     "spin": "右",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "BX-18 重力海皇",
+    "gear": "3-80 S",
+    "axis": "S (Spike)"
   },
   {
     "id": "BX-19",
@@ -187,7 +241,10 @@
     "spin": "左",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-19 金星球",
+    "gear": "3-80 S",
+    "axis": "S (Spike)"
   },
   {
     "id": "BX-20",
@@ -197,7 +254,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "BX-20 土星阿特拉斯",
+    "gear": "3-60 F",
+    "axis": "F (Flat)"
   },
   {
     "id": "BX-21",
@@ -207,7 +267,10 @@
     "spin": "右",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "BX-21 赫利俄斯",
+    "gear": "4-70 T",
+    "axis": "T (Taper)"
   },
   {
     "id": "BX-22",
@@ -217,7 +280,10 @@
     "spin": "左",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-22 塞勒涅",
+    "gear": "4-60 D",
+    "axis": "D (Dot)"
   },
   {
     "id": "BX-23",
@@ -227,7 +293,10 @@
     "spin": "右",
     "rating": "T0",
     "recIndex": 5,
-    "ratingDisplay": "神級"
+    "ratingDisplay": "神級",
+    "bit": "BX-23 鳳凰飛翼",
+    "gear": "9-60 GF",
+    "axis": "GF (Gear Flat)"
   },
   {
     "id": "BX-24",
@@ -237,7 +306,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-24 龍騎熱誠",
+    "gear": "5-80 GB",
+    "axis": "GB (Gear Ball)"
   },
   {
     "id": "BX-25",
@@ -247,7 +319,10 @@
     "spin": "左",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "BX-25 波塞冬",
+    "gear": "5-60 GP",
+    "axis": "GP (Gear Point)"
   },
   {
     "id": "BX-26",
@@ -257,7 +332,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-26 阿瑞斯",
+    "gear": "9-80 GN",
+    "axis": "GN (Gear Needle)"
   },
   {
     "id": "BX-27",
@@ -267,7 +345,10 @@
     "spin": "右",
     "rating": "T0.5",
     "recIndex": 5,
-    "ratingDisplay": "超班"
+    "ratingDisplay": "超班",
+    "bit": "BX-27 雅典娜",
+    "gear": "2-60 C",
+    "axis": "C (Cyclone)"
   },
   {
     "id": "BX-28",
@@ -277,7 +358,10 @@
     "spin": "左",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-28 阿波羅",
+    "gear": "3-60 U",
+    "axis": "U (Unite)"
   },
   {
     "id": "BX-29",
@@ -287,7 +371,10 @@
     "spin": "右",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "BX-29 阿耳忒彌斯",
+    "gear": "4-70 Q",
+    "axis": "Q (Quake)"
   },
   {
     "id": "BX-30",
@@ -297,7 +384,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "BX-30 宙斯",
+    "gear": "2-60 C",
+    "axis": "C (Cyclone)"
   },
   {
     "id": "WX-01",
@@ -307,7 +397,10 @@
     "spin": "右",
     "rating": "T0.5",
     "recIndex": 5,
-    "ratingDisplay": "超班"
+    "ratingDisplay": "超班",
+    "bit": "WX-01 奇蹟龍",
+    "gear": "3-60 F",
+    "axis": "F (Flat)"
   },
   {
     "id": "WX-02",
@@ -317,7 +410,10 @@
     "spin": "右",
     "rating": "T0",
     "recIndex": 5,
-    "ratingDisplay": "神級"
+    "ratingDisplay": "神級",
+    "bit": "WX-02 奇蹟鳳凰",
+    "gear": "9-60 GF",
+    "axis": "GF (Gear Flat)"
   },
   {
     "id": "WX-03",
@@ -327,7 +423,10 @@
     "spin": "左",
     "rating": "T0.5",
     "recIndex": 5,
-    "ratingDisplay": "超班"
+    "ratingDisplay": "超班",
+    "bit": "WX-03 奇蹟之鷹",
+    "gear": "4-80 B",
+    "axis": "B (Ball)"
   },
   {
     "id": "WX-04",
@@ -337,7 +436,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "WX-04 奇蹟猛虎",
+    "gear": "4-80 T",
+    "axis": "T (Taper)"
   },
   {
     "id": "WX-05",
@@ -347,7 +449,10 @@
     "spin": "左",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "WX-05 奇蹟巨蛇",
+    "gear": "3-60 GB",
+    "axis": "GB (Gear Ball)"
   },
   {
     "id": "WX-06",
@@ -357,7 +462,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "WX-06 奇蹟雄獅",
+    "gear": "5-60 P",
+    "axis": "P (Point)"
   },
   {
     "id": "WX-07",
@@ -367,7 +475,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "WX-07 奇蹟巨熊",
+    "gear": "3-60 S",
+    "axis": "S (Spike)"
   },
   {
     "id": "WX-08",
@@ -377,7 +488,10 @@
     "spin": "左",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "WX-08 奇蹟鯊魚",
+    "gear": "4-80 T",
+    "axis": "T (Taper)"
   },
   {
     "id": "WX-09",
@@ -387,7 +501,10 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "WX-09 奇蹟狼",
+    "gear": "4-60 D",
+    "axis": "D (Dot)"
   },
   {
     "id": "WX-10",
@@ -397,7 +514,10 @@
     "spin": "左",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "WX-10 奇蹟八爪魚",
+    "gear": "5-60 P",
+    "axis": "P (Point)"
   },
   {
     "id": "UX-01",
@@ -407,7 +527,10 @@
     "spin": "右",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "UX-01 海軍上將",
+    "gear": "1-60 A",
+    "axis": "A (Accel)"
   },
   {
     "id": "UX-02",
@@ -417,7 +540,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "UX-02 烈焰魔龍",
+    "gear": "3-70 H",
+    "axis": "H (High)"
   },
   {
     "id": "UX-03",
@@ -427,7 +553,10 @@
     "spin": "左",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "UX-03 女武神",
+    "gear": "5-70 DB",
+    "axis": "DB (Dash Ball)"
   },
   {
     "id": "UX-04",
@@ -437,7 +566,10 @@
     "spin": "右",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "UX-04 魔龍",
+    "gear": "1-80 MN",
+    "axis": "MN (Metal Needle)"
   },
   {
     "id": "UX-05",
@@ -447,7 +579,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "UX-05 斯普里根",
+    "gear": "7-60 GN",
+    "axis": "GN (Gear Needle)"
   },
   {
     "id": "UX-06",
@@ -457,7 +592,10 @@
     "spin": "左",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "UX-06 京城",
+    "gear": "4-80 HN",
+    "axis": "HN (High Needle)"
   },
   {
     "id": "UX-07",
@@ -467,7 +605,10 @@
     "spin": "右",
     "rating": "T2",
     "recIndex": 3,
-    "ratingDisplay": "唔錯"
+    "ratingDisplay": "唔錯",
+    "bit": "UX-07 酸液",
+    "gear": "1-80 GF",
+    "axis": "GF (Gear Flat)"
   },
   {
     "id": "UX-08",
@@ -477,7 +618,10 @@
     "spin": "左",
     "rating": "T1.5",
     "recIndex": 4,
-    "ratingDisplay": "幾好"
+    "ratingDisplay": "幾好",
+    "bit": "UX-08 時空旅人",
+    "gear": "3-80 FB",
+    "axis": "FB (Free Ball)"
   },
   {
     "id": "UX-09",
@@ -487,7 +631,10 @@
     "spin": "右",
     "rating": "T0.5",
     "recIndex": 5,
-    "ratingDisplay": "超班"
+    "ratingDisplay": "超班",
+    "bit": "UX-09 巫師",
+    "gear": "2-70 L",
+    "axis": "L (Left)"
   },
   {
     "id": "UX-10",
@@ -497,6 +644,9 @@
     "spin": "右",
     "rating": "T1",
     "recIndex": 4,
-    "ratingDisplay": "強力"
+    "ratingDisplay": "強力",
+    "bit": "UX-10 死亡預言",
+    "gear": "9-60 LR",
+    "axis": "LR (Left Rush)"
   }
 ]
