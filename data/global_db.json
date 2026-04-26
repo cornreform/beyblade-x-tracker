@@ -6,7 +6,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-02",
@@ -15,7 +16,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T3",
-    "recIndex": 2
+    "recIndex": 2,
+    "ratingDisplay": "一般"
   },
   {
     "id": "BX-03",
@@ -24,7 +26,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-04",
@@ -33,7 +36,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-05",
@@ -42,7 +46,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-06",
@@ -51,7 +56,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-07",
@@ -60,7 +66,8 @@
     "type": "Defense",
     "spin": "右",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "BX-08",
@@ -69,7 +76,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-09",
@@ -78,7 +86,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-10",
@@ -87,7 +96,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-11",
@@ -96,7 +106,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-12",
@@ -105,7 +116,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-13",
@@ -114,7 +126,8 @@
     "type": "Attack",
     "spin": "左",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "BX-14",
@@ -123,7 +136,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-15",
@@ -132,7 +146,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-16",
@@ -141,7 +156,8 @@
     "type": "Attack",
     "spin": "左",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "BX-17",
@@ -150,7 +166,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-18",
@@ -159,7 +176,8 @@
     "type": "Defense",
     "spin": "右",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "BX-19",
@@ -168,7 +186,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-20",
@@ -177,7 +196,8 @@
     "type": "Defense",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "BX-21",
@@ -186,7 +206,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "BX-22",
@@ -195,7 +216,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-23",
@@ -204,7 +226,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T0",
-    "recIndex": 5
+    "recIndex": 5,
+    "ratingDisplay": "神級"
   },
   {
     "id": "BX-24",
@@ -213,7 +236,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-25",
@@ -222,7 +246,8 @@
     "type": "Defense",
     "spin": "左",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "BX-26",
@@ -231,7 +256,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-27",
@@ -240,7 +266,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T0.5",
-    "recIndex": 5
+    "recIndex": 5,
+    "ratingDisplay": "超班"
   },
   {
     "id": "BX-28",
@@ -249,7 +276,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "BX-29",
@@ -258,7 +286,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "BX-30",
@@ -267,7 +296,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "WX-01",
@@ -276,7 +306,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T0.5",
-    "recIndex": 5
+    "recIndex": 5,
+    "ratingDisplay": "超班"
   },
   {
     "id": "WX-02",
@@ -285,7 +316,8 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T0",
-    "recIndex": 5
+    "recIndex": 5,
+    "ratingDisplay": "神級"
   },
   {
     "id": "WX-03",
@@ -294,7 +326,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T0.5",
-    "recIndex": 5
+    "recIndex": 5,
+    "ratingDisplay": "超班"
   },
   {
     "id": "WX-04",
@@ -303,7 +336,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "WX-05",
@@ -312,7 +346,8 @@
     "type": "Defense",
     "spin": "左",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "WX-06",
@@ -321,7 +356,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "WX-07",
@@ -330,7 +366,8 @@
     "type": "Defense",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "WX-08",
@@ -339,7 +376,8 @@
     "type": "Attack",
     "spin": "左",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "WX-09",
@@ -348,7 +386,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "WX-10",
@@ -357,7 +396,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "UX-01",
@@ -366,7 +406,8 @@
     "type": "Defense",
     "spin": "右",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "UX-02",
@@ -375,7 +416,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "UX-03",
@@ -384,7 +426,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "UX-04",
@@ -393,7 +436,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "UX-05",
@@ -402,7 +446,8 @@
     "type": "Defense",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "UX-06",
@@ -411,7 +456,8 @@
     "type": "Attack",
     "spin": "左",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   },
   {
     "id": "UX-07",
@@ -420,7 +466,8 @@
     "type": "Attack",
     "spin": "右",
     "rating": "T2",
-    "recIndex": 3
+    "recIndex": 3,
+    "ratingDisplay": "唔錯"
   },
   {
     "id": "UX-08",
@@ -429,7 +476,8 @@
     "type": "Stamina",
     "spin": "左",
     "rating": "T1.5",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "幾好"
   },
   {
     "id": "UX-09",
@@ -438,7 +486,8 @@
     "type": "Balance",
     "spin": "右",
     "rating": "T0.5",
-    "recIndex": 5
+    "recIndex": 5,
+    "ratingDisplay": "超班"
   },
   {
     "id": "UX-10",
@@ -447,6 +496,7 @@
     "type": "Stamina",
     "spin": "右",
     "rating": "T1",
-    "recIndex": 4
+    "recIndex": 4,
+    "ratingDisplay": "強力"
   }
 ]

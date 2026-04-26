@@ -800,7 +800,7 @@
                 <span class="beyblade-id">${b.id}</span>
                 ${inCollection ? '<span class="owned-badge">✓ 已擁有</span>' : ''}
               </div>
-              <span class="rating ${getRatingClass(b.rating)}">${b.rating || '-'}</span>
+              <span class="rating ${getRatingClass(b.rating)}">${b.ratingDisplay || b.rating}</span>
             </div>
             <div class="beyblade-name">${b.hkName || b.name}</div>
             <div class="beyblade-type">${b.type} · <span class="spin">${b.spin}</span></div>
@@ -839,7 +839,7 @@
         <div class="card">
           <div class="card-header">
             <span class="beyblade-id">${b.id}</span>
-            <span class="rating ${getRatingClass(b.rating)}">${b.rating || '-'}</span>
+            <span class="rating ${getRatingClass(b.rating)}">${b.ratingDisplay || b.rating}</span>
           </div>
           <div class="beyblade-name">${b.hkName || b.name}</div>
           <div class="beyblade-type">${b.type} · <span class="spin">${b.spin}</span></div>
