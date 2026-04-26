@@ -346,10 +346,10 @@ function renderBuyScore(tier) {
   const score = getBuyScore(tier);
   const tierLabels = {'T0': '必買', 'T0.5': '推薦', 'T1': '建議', 'T2': '可考慮', 'T3': '非必要'};
   const dots = Array(5).fill(0).map((_,i) =>
-    `<div class="dot ${i < score ? 'on' : 'off'}"></div>`
+    `<div class="dot ${i < score ? 'on' : 'off'}" style="width:16px;height:16px;border-radius:50%;flex-shrink:0"></div>`
   ).join('');
   const label = tierLabels[tier] || '普通';
-  return `${dots}<span class="buy-score-label">${label} ${tier}</span>`;
+  return `<div style="display:flex;flex-direction:row;align-items:center;gap:4px">${dots}<span style="font-size:0.75rem;color:#888;margin-left:4px">${label} ${tier}</span></div>`;
 }
 
 function renderCard(t, isPersonal) {
