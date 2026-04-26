@@ -1,0 +1,17 @@
+{
+  "name": "爆旋陀螺X 收藏工具",
+  "short_name": "陀螺收藏",
+  "description": "追蹤、管理、比較你的爆旋陀螺X收藏",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "description": "齒輪與中軸配搭建議",
+  "lastUpdated": "2026-04-27",
+  "bits": [
+    {"id": "BX-series", "name": "BX系列刃片", "count": 30, "note": "標準型，適合新手"},
+    {"id": "WX-series", "name": "WX系列刃片", "count": 10, "note": "Wonder型，性能更強"},
+    {"id": "UX-series", "name": "UX系列刃片", "count": 10, "note": " Ultimate型，最高階"}
+  ],
+  "gears": [
+    {"id": "GF", "name": "9-60 GF", "spin": "右", "type": "Stamina", "note": "原裝配鳳凰飛翼，T0首選"},
+    {"id": "L", "name": "2-70 L", "spin": "左", "type": "Stamina", "note": "原裝配巫師，T0.5"},
+    {"id": "WF", "name": "4-80 WF", "spin": "右", "type": "Stamina", "note": "配奇蹟鳳凰"},
+    {"id": "O", "name": "5-60 O", "spin": "右", "type": "Balance", "note": "原裝配雅典娜"},
+    {"id": "WD", "name": "1-80 WD", "spin": "右", "type": "Stamina", "note": "配奇蹟龍"},
+    {"id": "A", "name": "1-60 A", "spin": "右", "type": "Defense", "note": "原裝配海軍上將"},
+    {"id": "TH", "name": "4-70 TH", "spin": "左", "type": "Stamina", "note": "配泰坦冥王"},
+    {"id": "D", "name": "6-50 D", "spin": "右", "type": "Attack", "note": "配烈焰魔龍"}
+  ],
+  "axes": [
+    {"id": "F", "name": "F (Fly)", "type": "Stamina", "note": "飛行形，重心偏外"},
+    {"id": "L", "name": "L (Left)", "type": "Stamina", "note": "左手專用，齒輪左旋"},
+    {"id": "O", "name": "O (Orbit)", "type": "Balance", "note": "軌道形，旋轉半徑大"},
+    {"id": "D", "name": "D (Defense)", "type": "Defense", "note": "防禦形，重量集中"},
+    {"id": "A", "name": "A (Admiral)", "type": "Defense", "note": "海軍形，平衡穩定"},
+    {"id": "H", "name": "H (Hold)", "type": "Stamina", "note": "握力形，抓地力強"},
+    {"id": "S", "name": "S (Strike)", "type": "Attack", "note": "攻擊形，撞擊力強"}
+  ],
+  "tips": [
+    "原裝組合通常係最好嘅選擇",
+    "左手齒輪配左手刃片，右手齒輪配右手刃片",
+    "齒輪數字越大 = 旋轉半徑越大，適合stamina",
+    "齒輪數字越小 = 攻擊力越強，適合attack",
+    "新手建議從原裝組合開始，熟習後再試mix配搭"
+  ]
+}

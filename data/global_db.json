@@ -1,0 +1,452 @@
+[
+  {
+    "id": "BX-01",
+    "name": "Dragon Crown",
+    "hkName": "龍皇冠",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-02",
+    "name": "Shadow Orbit",
+    "hkName": "暗影軌道",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T3",
+    "recIndex": 2
+  },
+  {
+    "id": "BX-03",
+    "name": "Storm Pegasus",
+    "hkName": "風暴天馬",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-04",
+    "name": "Rush Wyvern",
+    "hkName": "疾風獅鷲",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-05",
+    "name": "Phantom Orion",
+    "hkName": "幽靈獵戶",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-06",
+    "name": "Blitz Treptune",
+    "hkName": "閃電海神",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-07",
+    "name": "Crystal Beyla",
+    "hkName": "水晶比拉",
+    "type": "Defense",
+    "spin": "右",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-08",
+    "name": "Titan Hades",
+    "hkName": "泰坦冥王",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-09",
+    "name": "Nova Balro",
+    "hkName": "新星巴羅",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-10",
+    "name": "Galaxy Nova",
+    "hkName": "銀河新星",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-11",
+    "name": "Meteor V Draco",
+    "hkName": "流星V龍",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-12",
+    "name": "Solar Prometheus",
+    "hkName": "太陽普羅米",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-13",
+    "name": "Dark Doomscizor",
+    "hkName": "黑暗毀滅",
+    "type": "Attack",
+    "spin": "左",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-14",
+    "name": "Hyperion",
+    "hkName": "許珀里翁",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-15",
+    "name": "Astraeus",
+    "hkName": "阿斯特萊",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-16",
+    "name": "Eclipse",
+    "hkName": "日蝕",
+    "type": "Attack",
+    "spin": "左",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-17",
+    "name": "Cosmic Pegasus",
+    "hkName": "宇宙天馬",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-18",
+    "name": "Gravity Neptune",
+    "hkName": "重力海皇",
+    "type": "Defense",
+    "spin": "右",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-19",
+    "name": "Venus Orb",
+    "hkName": "金星球",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-20",
+    "name": "Saturn Atlas",
+    "hkName": "土星阿特拉斯",
+    "type": "Defense",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "BX-21",
+    "name": "Helios",
+    "hkName": "赫利俄斯",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-22",
+    "name": "Selene",
+    "hkName": "塞勒涅",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-23",
+    "name": "Phoenix Wing",
+    "hkName": "鳳凰飛翼",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T0",
+    "recIndex": 5
+  },
+  {
+    "id": "BX-24",
+    "name": "Draco Zelous",
+    "hkName": "龍騎熱誠",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-25",
+    "name": "Poseidon",
+    "hkName": "波塞冬",
+    "type": "Defense",
+    "spin": "左",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-26",
+    "name": "Ares",
+    "hkName": "阿瑞斯",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-27",
+    "name": "Athena",
+    "hkName": "雅典娜",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T0.5",
+    "recIndex": 5
+  },
+  {
+    "id": "BX-28",
+    "name": "Apollo",
+    "hkName": "阿波羅",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-29",
+    "name": "Artemis",
+    "hkName": "阿耳忒彌斯",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "BX-30",
+    "name": "Zeus",
+    "hkName": "宙斯",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "WX-01",
+    "name": "Wonder Dragon",
+    "hkName": "奇蹟龍",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T0.5",
+    "recIndex": 5
+  },
+  {
+    "id": "WX-02",
+    "name": "Wonder Phoenix",
+    "hkName": "奇蹟鳳凰",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T0",
+    "recIndex": 5
+  },
+  {
+    "id": "WX-03",
+    "name": "Wonder Eagle",
+    "hkName": "奇蹟之鷹",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T0.5",
+    "recIndex": 5
+  },
+  {
+    "id": "WX-04",
+    "name": "Wonder Tiger",
+    "hkName": "奇蹟猛虎",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "WX-05",
+    "name": "Wonder Serpent",
+    "hkName": "奇蹟巨蛇",
+    "type": "Defense",
+    "spin": "左",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "WX-06",
+    "name": "Wonder Lion",
+    "hkName": "奇蹟雄獅",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "WX-07",
+    "name": "Wonder Bear",
+    "hkName": "奇蹟巨熊",
+    "type": "Defense",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "WX-08",
+    "name": "Wonder Shark",
+    "hkName": "奇蹟鯊魚",
+    "type": "Attack",
+    "spin": "左",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "WX-09",
+    "name": "Wonder Wolf",
+    "hkName": "奇蹟狼",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "WX-10",
+    "name": "Wonder Octopus",
+    "hkName": "奇蹟八爪魚",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "UX-01",
+    "name": "Admiral",
+    "hkName": "海軍上將",
+    "type": "Defense",
+    "spin": "右",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "UX-02",
+    "name": "Dranzer",
+    "hkName": "烈焰魔龍",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "UX-03",
+    "name": "Valkyrie",
+    "hkName": "女武神",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "UX-04",
+    "name": "Dragon",
+    "hkName": "魔龍",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "UX-05",
+    "name": "Spriggan",
+    "hkName": "斯普里根",
+    "type": "Defense",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "UX-06",
+    "name": "Kyoiya",
+    "hkName": "京城",
+    "type": "Attack",
+    "spin": "左",
+    "rating": "T1",
+    "recIndex": 4
+  },
+  {
+    "id": "UX-07",
+    "name": "Acid",
+    "hkName": "酸液",
+    "type": "Attack",
+    "spin": "右",
+    "rating": "T2",
+    "recIndex": 3
+  },
+  {
+    "id": "UX-08",
+    "name": "Horogini",
+    "hkName": "時空旅人",
+    "type": "Stamina",
+    "spin": "左",
+    "rating": "T1.5",
+    "recIndex": 4
+  },
+  {
+    "id": "UX-09",
+    "name": "Wizard",
+    "hkName": "巫師",
+    "type": "Balance",
+    "spin": "右",
+    "rating": "T0.5",
+    "recIndex": 5
+  },
+  {
+    "id": "UX-10",
+    "name": "Death Oracle",
+    "hkName": "死亡預言",
+    "type": "Stamina",
+    "spin": "右",
+    "rating": "T1",
+    "recIndex": 4
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "combo-001",
+    "name": "鳳凰飛翼原裝",
+    "bit": "BX-23 鳳凰飛翼",
+    "gear": "9-60 GF",
+    "axis": "F (Fly)",
+    "rating": "T0",
+    "score": 9.5,
+    "note": "原裝就係最強。BeyBase評測9.5/10，適合新手同高手。"
+  },
+  {
+    "id": "combo-002",
+    "name": "巫師原裝",
+    "bit": "UX-09 巫師",
+    "gear": "2-70 L",
+    "axis": "L (Left)",
+    "rating": "T0.5",
+    "score": 9.0,
+    "note": "左手spin適合對付右手对手，穩定性極高。"
+  },
+  {
+    "id": "combo-003",
+    "name": "奇蹟鳳凰",
+    "bit": "WX-02 奇蹟鳳凰",
+    "gear": "4-80 WF",
+    "axis": "F (Fly)",
+    "rating": "T0.5",
+    "score": 9.0,
+    "note": "Wonder系列旗艦， stamina表現出色。"
+  },
+  {
+    "id": "combo-004",
+    "name": "雅典娜原裝",
+    "bit": "BX-27 雅典娜",
+    "gear": "5-60 O",
+    "axis": "O (Orbit)",
+    "rating": "T0.5",
+    "score": 8.8,
+    "note": "Balance類型全能型，適合多種場面。"
+  },
+  {
+    "id": "combo-005",
+    "name": "奇蹟龍",
+    "bit": "WX-01 奇蹟龍",
+    "gear": "1-80 WD",
+    "axis": "D (Defense)",
+    "rating": "T0.5",
+    "score": 8.8,
+    "note": "高持久力，適合長命對決。"
+  },
+  {
+    "id": "combo-006",
+    "name": "海軍上將原裝",
+    "bit": "UX-01 海軍上將",
+    "gear": "1-60 A",
+    "axis": "A (Admiral)",
+    "rating": "T1",
+    "score": 8.5,
+    "note": "防禦型穩定選擇，適合對抗攻擊型。"
+  },
+  {
+    "id": "combo-007",
+    "name": "泰坦冥王",
+    "bit": "BX-08 泰坦冥王",
+    "gear": "4-70 TH",
+    "axis": "H (Hold)",
+    "rating": "T1",
+    "score": 8.3,
+    "note": "左手stamina型，對右手对手有優勢。"
+  },
+  {
+    "id": "combo-008",
+    "name": "烈焰魔龍",
+    "bit": "UX-02 烈焰魔龍",
+    "gear": "6-50 D",
+    "axis": "D (Dragon)",
+    "rating": "T1",
+    "score": 8.2,
+    "note": "攻擊型快速結束戰鬥。"
+  }
+]
