@@ -484,10 +484,15 @@
 
     /* Recommendation Index */
     .rec-index {
-      display: flex;
-      flex-direction: row;
-      gap: 3px;
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 3px !important;
       margin-top: 6px;
+      flex-flow: row nowrap !important;
+    }
+
+    .rec-index > * {
+      display: inline-block !important;
     }
 
     .rec-dot {
