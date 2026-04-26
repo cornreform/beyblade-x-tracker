@@ -445,6 +445,35 @@
       color: white;
     }
 
+    /* PWA Guide */
+    .pwa-guide p {
+      margin-bottom: 12px;
+    }
+
+    .pwa-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .pwa-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .step-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .pwa-step div {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
     /* Last Updated */
     .last-updated {
       text-align: center;
@@ -602,6 +631,21 @@
 
     <!-- Tools Section -->
     <section class="section" id="tools">
+      <div class="info-box pwa-guide">
+        <h3>📱 安裝為手機App</h3>
+        <p>你可以將呢個工具安裝到手機主畫面，方便隨時使用：</p>
+        <div class="pwa-steps">
+          <div class="pwa-step">
+            <span class="step-icon">🍎</span>
+            <div><strong>iPhone 用戶</strong><br>Safari開啟 → 點擊分享按鈕 → 向下捲 → 「加入主畫面」</div>
+          </div>
+          <div class="pwa-step">
+            <span class="step-icon">🤖</span>
+            <div><strong>Android 用戶</strong><br>Chrome開啟 → 點擊右上角選單 → 「安裝應用程式」</div>
+          </div>
+        </div>
+      </div>
+
       <div class="info-box">
         <h3>💾 資料管理</h3>
         <p>你的資料只會儲存在本機瀏覽器。如需更換瀏覽器或設備，請先導出備份。</p>
