@@ -1,5 +1,5 @@
 {
-  "description": "齒輪與中軸配搭建議",
+  "description": "固鎖與Bit配搭建議",
   "lastUpdated": "2026-04-27",
   "bits": [
     {"id": "BX-series", "name": "BX系列刃片", "count": 30, "note": "標準型，適合新手"},
@@ -18,7 +18,7 @@
   ],
   "axes": [
     {"id": "F", "name": "F (Fly)", "type": "Stamina", "note": "飛行形，重心偏外"},
-    {"id": "L", "name": "L (Left)", "type": "Stamina", "note": "左手專用，齒輪左旋"},
+    {"id": "L", "name": "L (Left)", "type": "Stamina", "note": "左手專用，固鎖左旋"},
     {"id": "O", "name": "O (Orbit)", "type": "Balance", "note": "軌道形，旋轉半徑大"},
     {"id": "D", "name": "D (Defense)", "type": "Defense", "note": "防禦形，重量集中"},
     {"id": "A", "name": "A (Admiral)", "type": "Defense", "note": "海軍形，平衡穩定"},
@@ -27,9 +27,9 @@
   ],
   "tips": [
     "原裝組合通常係最好嘅選擇",
-    "左手齒輪配左手刃片，右手齒輪配右手刃片",
-    "齒輪數字越大 = 旋轉半徑越大，適合stamina",
-    "齒輪數字越小 = 攻擊力越強，適合attack",
+    "左手固鎖配左手刃片，右手固鎖配右手刃片",
+    "固鎖數字越大 = 旋轉半徑越大，適合stamina",
+    "固鎖數字越小 = 攻擊力越強，適合attack",
     "新手建議從原裝組合開始，熟習後再試mix配搭"
   ]
 }
