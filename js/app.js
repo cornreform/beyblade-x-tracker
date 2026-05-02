@@ -229,7 +229,8 @@
 
   function switchTab(tab) {
     currentTab = tab;
-    currentFilter = 'all';
+    // 評級榜預設顯示 T0，全球圖鑑預設顯示全部
+    currentFilter = tab === 'tier' ? 'T0' : 'all';
     var tabs = document.querySelectorAll('.tab');
     for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
     event.target.classList.add('active');
@@ -237,9 +238,11 @@
     document.getElementById('typeFilters').style.display = tab === 'global' ? 'flex' : 'none';
     var chips = document.querySelectorAll('.filter-chip');
     for (var j = 0; j < chips.length; j++) chips[j].classList.remove('active');
+    // 評級榜自動揀T0 chip，其他tab揀「全部」
+    var filterLabel = tab === 'tier' ? 'T0' : '全部';
     var allChips = document.querySelectorAll('.filter-chip');
     for (var k = 0; k < allChips.length; k++) {
-      if (allChips[k].textContent.indexOf('全部') !== -1) allChips[k].classList.add('active');
+      if (allChips[k].textContent.indexOf(filterLabel) !== -1) allChips[k].classList.add('active');
     }
     render();
   }
