@@ -116,7 +116,7 @@
         return JSON.stringify(t).toLowerCase().indexOf(search) !== -1;
       });
       if (items.length === 0) {
-        el.innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>暫無收藏</p><p style="font-size:0.85rem;color:#666;margin-top:8px">去「全球圖鑑」添加陀螺吧！</p></div>';
+        el.innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>暫無收藏</p><p style="font-size:0.85rem;color:#666;margin-top:8px">去「全球圖鑑」添加陀螺吧！</p><div style="margin-top:20px;padding:16px;background:rgba(29,209,161,0.08);border:1px solid rgba(29,209,161,0.2);border-radius:12px;text-align:center"><div style="font-size:0.8rem;color:#7de8cc;font-weight:600;margin-bottom:10px">📦 備份與恢復</div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button onclick="exportCollection()" style="padding:10px 20px;background:#1dd1a1;color:#0a0a1a;border:none;border-radius:10px;font-size:0.85rem;font-weight:700;cursor:pointer">📤 導出收藏</button><button onclick="triggerImport()" style="padding:10px 20px;background:#2a2a4a;color:#e8e8f0;border:1px solid #3a3a6a;border-radius:10px;font-size:0.85rem;font-weight:600;cursor:pointer">📥 恢復收藏</button></div><div style="margin-top:10px;font-size:0.72rem;color:#606080">導出後存到安全的地方，隨時可恢復</div></div></div>';
         return;
       }
       el.innerHTML = '<div class="section-title">📦 我的收藏 (' + items.length + '款)</div><div class="grid">' + items.map(function(t) { return renderCard(t, true); }).join('') + '</div>';
