@@ -125,6 +125,9 @@
         if (currentFilter !== 'all' && t.type !== currentFilter) return false;
         if (!search) return true;
         return JSON.stringify(t).toLowerCase().indexOf(search) !== -1;
+      }).sort(function(a, b) {
+        var tierOrder = {'T0': 0, 'T1': 1, 'T2': 2, 'T3': 3};
+        return (tierOrder[a.tier] || 4) - (tierOrder[b.tier] || 4);
       });
       if (items.length === 0) {
         el.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><p>無匹配結果</p></div>';
@@ -194,10 +197,10 @@
     html += '<div style="color:#6c5ce7;font-weight:bold;font-size:1rem;margin-bottom:16px">💡 基礎配搭建議</div>';
     html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">';
     var combos = [
-      {type: '🔥 攻擊型', combo: '3-80固鎖 + S(尖)Bit', best: '騎士護盾/猛獁長牙'},
-      {type: '🛡️ 防禦型', combo: '5-60固鎖 + O(珠)Bit', best: '幻神護甲(原裝)'},
-      {type: '⏱️ 持久型', combo: '9-65固鎖 + B(球)Bit', best: '時鐘幽景(原裝)'},
-      {type: '⚖️ 平衡型', combo: '7-60固鎖 + B(球)Bit', best: '猛獁長牙(跨配)'}
+      {type: '🔥 攻擊型', combo: '3-80固鎖 + S Bit', best: '翔龍破壞劍 / 鯊魚狂鱗'},
+      {type: '🛡️ 防禦型', combo: '5-60固鎖 + O Bit', best: '白銀戰狼 / 騎士堡壘'},
+      {type: '⏱️ 持久型', combo: '9-60固鎖 + B Bit', best: '巫師幻杖 / 翔龍勇者'},
+      {type: '⚖️ 平衡型', combo: '7-60固鎖 + B Bit', best: '時鐘幽景 / 隕石青龍'}
     ];
     for (var n = 0; n < combos.length; n++) {
       var c = combos[n];
