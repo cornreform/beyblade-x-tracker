@@ -323,7 +323,7 @@
     html += '<option value="">選擇Bit...</option>';
     for (var a = 0; a < PARTS_DATA.axes.length; a++) {
       var ax = PARTS_DATA.axes[a];
-      html += '<option value="' + ax.id + '">' + ax.id + ' ' + ax.name + '</option>';
+      html += '<option value="' + ax.id + '">' + ax.id + ' - ' + ax.full + '</option>';
     }
     html += '</select></div></div>';
     html += '<div id="comboPreview" style="text-align:center;padding:16px;background:#0f0f23;border-radius:8px;min-height:60px"><div style="color:#666;font-size:0.9rem">選擇零件組合成你的陀螺</div></div></div>';
