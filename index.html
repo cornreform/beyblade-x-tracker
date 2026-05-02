@@ -27,7 +27,9 @@
         <span>🔥 T0:<span id="statT0">0</span></span>
         <span>T1:<span id="statT1">0</span></span>
       </div>
-      <button id="refreshBtn" onclick="refreshData()" style="background:none;border:none;color:#6c5ce7;font-size:1.2rem;cursor:pointer;padding:4px;border-radius:8px">🔄</button>
+      <button id="refreshBtn" onclick="refreshData()" style="background:none;border:1px solid #2a2a4a;color:#6c5ce7;font-size:0.9rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="刷新數據">🔄</button>
+      <button onclick="exportCollection()" style="background:none;border:1px solid #2a2a4a;color:#1dd1a1;font-size:0.9rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導出備份">📤</button>
+      <button onclick="triggerImport()" style="background:none;border:1px solid #2a2a4a;color:#feca57;font-size:0.9rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導入備份">📥</button>
     </div>
   </div>
 </header>

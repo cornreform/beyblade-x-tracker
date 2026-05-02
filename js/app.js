@@ -463,6 +463,48 @@
     });
   }
 
+  // ===== EXPORT / IMPORT (Backup to JSON file) =====
+  function exportCollection() {
+    var data = loadPersonalFromLS();
+    var blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    var date = new Date().toISOString().split('T')[0];
+    a.href = url;
+    a.download = 'beyblade_collection_' + date + '.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function triggerImport() {
+    var input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = function(e) {
+      var file = e.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        try {
+          var data = JSON.parse(ev.target.result);
+          if (data && Array.isArray(data.tops)) {
+            savePersonalToLS(data);
+            loadData();
+            alert('✅ 成功導入 ' + data.tops.length + ' 款收藏！');
+          } else {
+            alert('❌ 檔案格式無效');
+          }
+        } catch(err) {
+          alert('❌ 讀取失敗: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  }
+
   // Expose functions globally for onclick handlers
   window.switchTab = switchTab;
   window.filterTier = filterTier;
@@ -475,6 +517,8 @@
   window.refreshData = refreshData;
   window.updateCombo = updateCombo;
   window.saveCombo = saveCombo;
+  window.exportCollection = exportCollection;
+  window.triggerImport = triggerImport;
 
   // Initial load
   loadData();
