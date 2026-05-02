@@ -36,8 +36,28 @@
   <span style="font-size:0.78rem;color:#feca57">T1:<span style="font-weight:600" id="statT1">0</span></span>
 </div>
 
+<!-- PWA Install Banner -->
+<div id="pwaBanner" style="max-width:900px;margin:0 auto;padding:10px 16px;display:flex;align-items:flex-start;gap:10px;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.3);border-radius:10px;margin-top:8px;font-size:0.78rem;color:#a0a0c0;line-height:1.5">
+  <span style="font-size:1.1rem;flex-shrink:0;margin-top:1px">💡</span>
+  <div style="flex:1">
+    <div style="font-weight:600;color:#c8c0f0;margin-bottom:3px">可將本工具安裝為 App</div>
+    <div><strong>iOS</strong>：Safari 分享按鈕 →「加入主畫面」｜<strong>Android</strong>：Chrome 右上角⋮ →「安裝應用程式」</div>
+  </div>
+  <button onclick="dismissBanner('pwa')" style="background:none;border:none;color:#6c5ce7;font-size:0.9rem;cursor:pointer;padding:2px 6px;flex-shrink:0;align-self:flex-start">✕</button>
+</div>
+
+<!-- Backup Tip Banner -->
+<div id="backupBanner" style="max-width:900px;margin:0 auto;padding:10px 16px;display:flex;align-items:flex-start;gap:10px;background:rgba(29,209,161,0.08);border:1px solid rgba(29,209,161,0.25);border-radius:10px;margin-top:8px;font-size:0.78rem;color:#a0a0c0;line-height:1.5">
+  <span style="font-size:1.1rem;flex-shrink:0;margin-top:1px">📌</span>
+  <div style="flex:1">
+    <div style="font-weight:600;color:#7de8cc;margin-bottom:3px">定期備份收藏</div>
+    <div>header 右邊 📤 導出 JSON 檔案到本地 → 📥 可隨時恢復，換機/清除數據都不怕</div>
+  </div>
+  <button onclick="dismissBanner('backup')" style="background:none;border:none;color:#1dd1a1;font-size:0.9rem;cursor:pointer;padding:2px 6px;flex-shrink:0;align-self:flex-start">✕</button>
+</div>
+
 <!-- Search -->
-<div style="max-width:900px;margin:0 auto;padding:0 16px 8px">
+<div style="max-width:900px;margin:0 auto;padding:10px 16px 8px">
   <input id="searchBox" type="text" placeholder="🔍 搜尋陀螺名稱、型號..." onkeyup="doSearch()" style="width:100%;padding:12px 16px;border-radius:12px;border:1px solid #2a2a4a;background:#1a1a2e;color:#e0e0e0;font-size:0.95rem;outline:none">
 </div>
 

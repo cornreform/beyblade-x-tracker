@@ -505,6 +505,23 @@
     input.click();
   }
 
+  // ===== BANNER DISMISSAL =====
+  function dismissBanner(type) {
+    document.getElementById(type + 'Banner').style.display = 'none';
+    try { localStorage.setItem('banner_' + type + '_dismissed', '1'); } catch(e) {}
+  }
+
+  function initBanners() {
+    ['pwa', 'backup'].forEach(function(type) {
+      try {
+        if (localStorage.getItem('banner_' + type + '_dismissed') === '1') {
+          var el = document.getElementById(type + 'Banner');
+          if (el) el.style.display = 'none';
+        }
+      } catch(e) {}
+    });
+  }
+
   // Expose functions globally for onclick handlers
   window.switchTab = switchTab;
   window.filterTier = filterTier;
@@ -519,6 +536,10 @@
   window.saveCombo = saveCombo;
   window.exportCollection = exportCollection;
   window.triggerImport = triggerImport;
+  window.dismissBanner = dismissBanner;
+
+  // Init banners
+  initBanners();
 
   // Initial load
   loadData();
