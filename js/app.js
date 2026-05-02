@@ -126,8 +126,10 @@
         if (!search) return true;
         return JSON.stringify(t).toLowerCase().indexOf(search) !== -1;
       }).sort(function(a, b) {
-        var tierOrder = {'T0': 0, 'T1': 1, 'T2': 2, 'T3': 3};
-        return (tierOrder[a.tier] || 4) - (tierOrder[b.tier] || 4);
+        // Sort by box number ascending (BX-01 → BX-02 → ...)
+        var numA = parseInt(a.code.replace('BX-', ''), 10) || 0;
+        var numB = parseInt(b.code.replace('BX-', ''), 10) || 0;
+        return numA - numB;
       });
       if (items.length === 0) {
         el.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><p>無匹配結果</p></div>';
