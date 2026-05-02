@@ -76,9 +76,9 @@ body {
 
 /* --- Header --- */
 header {
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
-  padding: 14px 20px;
+  padding: 10px 16px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -92,15 +92,18 @@ header > div {
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
+  gap: 12px;
 }
 
 header h1 {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--accent) 0%, #a29bfe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 header .stat-group {

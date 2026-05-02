@@ -17,25 +17,27 @@
 <body>
 
 <!-- Header -->
-<header style="background:#1a1a2e;border-bottom:1px solid #2a2a4a;padding:16px 20px;position:sticky;top:0;z-index:100">
-  <div style="display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto">
-    <h1 style="font-size:1.2rem;font-weight:700;color:#6c5ce7">🌀 爆旋陀螺X 收藏庫</h1>
-    <div style="display:flex;align-items:center;gap:12px">
-      <div style="display:flex;gap:8px;font-size:0.7rem;color:#888">
-        <span>📦 <span id="statTotal">0</span></span>
-        <span>⭐ <span id="statOwned">0</span></span>
-        <span>🔥 T0:<span id="statT0">0</span></span>
-        <span>T1:<span id="statT1">0</span></span>
-      </div>
-      <button id="refreshBtn" onclick="refreshData()" style="background:none;border:1px solid #2a2a4a;color:#6c5ce7;font-size:0.9rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="刷新數據">🔄</button>
-      <button onclick="exportCollection()" style="background:none;border:1px solid #2a2a4a;color:#1dd1a1;font-size:0.9rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導出備份">📤</button>
-      <button onclick="triggerImport()" style="background:none;border:1px solid #2a2a4a;color:#feca57;font-size:0.9rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導入備份">📥</button>
+<header>
+  <div>
+    <h1>🌀 爆旋陀螺X 收藏庫</h1>
+    <div style="display:flex;align-items:center;gap:8px">
+      <button id="refreshBtn" onclick="refreshData()" style="background:none;border:1px solid #2a2a4a;color:#6c5ce7;font-size:0.85rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="刷新數據">🔄</button>
+      <button onclick="exportCollection()" style="background:none;border:1px solid #2a2a4a;color:#1dd1a1;font-size:0.85rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導出備份">📤</button>
+      <button onclick="triggerImport()" style="background:none;border:1px solid #2a2a4a;color:#feca57;font-size:0.85rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導入備份">📥</button>
     </div>
   </div>
 </header>
 
+<!-- Stats Bar (below header) -->
+<div style="max-width:900px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;overflow-x:auto;white-space:nowrap">
+  <span style="font-size:0.78rem;color:#a0a0c0">📦 <span style="color:#e8e8f0;font-weight:600" id="statTotal">0</span></span>
+  <span style="font-size:0.78rem;color:#a0a0c0">⭐ <span style="color:#e8e8f0;font-weight:600" id="statOwned">0</span></span>
+  <span style="font-size:0.78rem;color:#ff6b6b">🔥 T0:<span style="font-weight:600" id="statT0">0</span></span>
+  <span style="font-size:0.78rem;color:#feca57">T1:<span style="font-weight:600" id="statT1">0</span></span>
+</div>
+
 <!-- Search -->
-<div style="max-width:900px;margin:16px auto;padding:0 20px">
+<div style="max-width:900px;margin:0 auto;padding:0 16px 8px">
   <input id="searchBox" type="text" placeholder="🔍 搜尋陀螺名稱、型號..." onkeyup="doSearch()" style="width:100%;padding:12px 16px;border-radius:12px;border:1px solid #2a2a4a;background:#1a1a2e;color:#e0e0e0;font-size:0.95rem;outline:none">
 </div>
 
