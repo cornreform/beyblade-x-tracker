@@ -176,7 +176,9 @@
     html += '<div class="grid">';
     for (var i = 0; i < PARTS_DATA.ratchets.length; i++) {
       var r = PARTS_DATA.ratchets[i];
+      var ratchetImg = '/parts/ratchet_' + r.id.replace('-', '_') + '.png';
       html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + r.name + '</span><span class="card-tier">齒輪</span></div>';
+      html += '<img src="' + ratchetImg + '" alt="' + r.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
       html += '<div class="specs" style="margin-top:8px"><div class="spec"><span class="spec-label">類型</span><span class="spec-value">' + r.type + '</span></div></div>';
       html += '<div style="font-size:0.8rem;color:#888;margin-top:8px">📌 ' + r.note + '</div></div>';
     }
@@ -185,7 +187,9 @@
     html += '<div class="section-title" style="margin-top:24px">🎯 中軸 (Bit)</div><div class="grid">';
     for (var m = 0; m < PARTS_DATA.bits.length; m++) {
       var a = PARTS_DATA.bits[m];
+      var bitImg = '/parts/bit_' + a.id + '.png';
       html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + a.name + '</span><span class="card-tier">中軸</span></div>';
+      html += '<img src="' + bitImg + '" alt="' + a.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
       html += '<div class="specs" style="margin-top:8px"><div class="spec"><span class="spec-label">類型</span><span class="spec-value">' + a.type + '</span></div></div>';
       html += '<div style="font-size:0.8rem;color:#888;margin-top:8px">📌 ' + a.note + '</div></div>';
     }
