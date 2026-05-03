@@ -17,47 +17,23 @@
 <body>
 
 <!-- Header -->
-<header>
-  <div>
-    <h1>🌀 爆旋陀螺X 收藏庫</h1>
-    <div style="display:flex;align-items:center;gap:8px">
-      <button id="refreshBtn" onclick="refreshData()" style="background:none;border:1px solid #2a2a4a;color:#6c5ce7;font-size:0.85rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="刷新數據">🔄</button>
-      <button onclick="exportCollection()" style="background:none;border:1px solid #2a2a4a;color:#1dd1a1;font-size:0.85rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導出備份">📤</button>
-      <button onclick="triggerImport()" style="background:none;border:1px solid #2a2a4a;color:#feca57;font-size:0.85rem;cursor:pointer;padding:5px 10px;border-radius:8px" title="導入備份">📥</button>
+<header style="background:#1a1a2e;border-bottom:1px solid #2a2a4a;padding:16px 20px;position:sticky;top:0;z-index:100">
+  <div style="display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto">
+    <h1 style="font-size:1.2rem;font-weight:700;color:#6c5ce7">🌀 爆旋陀螺X 收藏庫</h1>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="display:flex;gap:8px;font-size:0.7rem;color:#888">
+        <span>📦 <span id="statTotal">0</span></span>
+        <span>⭐ <span id="statOwned">0</span></span>
+        <span>🔥 T0:<span id="statT0">0</span></span>
+        <span>T1:<span id="statT1">0</span></span>
+      </div>
+      <button id="refreshBtn" onclick="refreshData()" style="background:none;border:none;color:#6c5ce7;font-size:1.2rem;cursor:pointer;padding:4px;border-radius:8px">🔄</button>
     </div>
   </div>
 </header>
 
-<!-- Stats Bar (below header) -->
-<div style="max-width:900px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:16px;overflow-x:auto;white-space:nowrap;flex-wrap:wrap">
-  <span style="font-size:0.78rem;color:#a0a0c0">📦 <span style="color:#e8e8f0;font-weight:700;font-size:0.95rem" id="statTotal">0</span></span>
-  <span style="font-size:0.78rem;color:#a0a0c0">⭐ <span style="color:#e8e8f0;font-weight:700;font-size:0.95rem" id="statOwned">0</span></span>
-  <span style="font-size:0.78rem;color:#ff6b6b">🔥 T0 <span style="font-weight:700;font-size:0.95rem" id="statT0">0</span></span>
-  <span style="font-size:0.78rem;color:#feca57">⭐ T1 <span style="font-weight:700;font-size:0.95rem" id="statT1">0</span></span>
-</div>
-
-<!-- PWA Install Banner -->
-<div id="pwaBanner" style="max-width:900px;margin:0 auto;padding:10px 16px;display:flex;align-items:flex-start;gap:10px;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.3);border-radius:10px;margin-top:8px;font-size:0.78rem;color:#a0a0c0;line-height:1.5">
-  <span style="font-size:1.1rem;flex-shrink:0;margin-top:1px">💡</span>
-  <div style="flex:1">
-    <div style="font-weight:600;color:#c8c0f0;margin-bottom:3px">可將本工具安裝為 App</div>
-    <div><strong>iOS</strong>：Safari 分享按鈕 →「加入主畫面」｜<strong>Android</strong>：Chrome 右上角⋮ →「安裝應用程式」</div>
-  </div>
-  <button onclick="dismissBanner('pwa')" style="background:none;border:none;color:#6c5ce7;font-size:0.9rem;cursor:pointer;padding:2px 6px;flex-shrink:0;align-self:flex-start">✕</button>
-</div>
-
-<!-- Backup Tip Banner -->
-<div id="backupBanner" style="max-width:900px;margin:0 auto;padding:10px 16px;display:flex;align-items:flex-start;gap:10px;background:rgba(29,209,161,0.08);border:1px solid rgba(29,209,161,0.25);border-radius:10px;margin-top:8px;font-size:0.78rem;color:#a0a0c0;line-height:1.5">
-  <span style="font-size:1.1rem;flex-shrink:0;margin-top:1px">📌</span>
-  <div style="flex:1">
-    <div style="font-weight:600;color:#7de8cc;margin-bottom:3px">定期備份收藏</div>
-    <div>header 右邊 📤 導出 JSON 檔案到本地 → 📥 可隨時恢復，換機/清除數據都不怕</div>
-  </div>
-  <button onclick="dismissBanner('backup')" style="background:none;border:none;color:#1dd1a1;font-size:0.9rem;cursor:pointer;padding:2px 6px;flex-shrink:0;align-self:flex-start">✕</button>
-</div>
-
 <!-- Search -->
-<div style="max-width:900px;margin:0 auto;padding:10px 16px 8px">
+<div style="max-width:900px;margin:16px auto;padding:0 20px">
   <input id="searchBox" type="text" placeholder="🔍 搜尋陀螺名稱、型號..." onkeyup="doSearch()" style="width:100%;padding:12px 16px;border-radius:12px;border:1px solid #2a2a4a;background:#1a1a2e;color:#e0e0e0;font-size:0.95rem;outline:none">
 </div>
 
@@ -106,14 +82,8 @@
 <footer style="text-align:center;padding:24px 20px;color:#444;font-size:0.75rem;line-height:1.8">
   <div>© 2026 Beyblade X 收藏庫 — 個人工具</div>
   <div style="margin-top:4px">
-    產品圖片版權屬 Takara Tomy 所有<br>
-    <strong>📸 圖片來源：</strong>
-    <a href="https://spincityimports.com" target="_blank" style="color:#666">SpinCityImports.com</a>
-    （美國授權經銷商，零件實物圖）|
-    <a href="https://beyblade.fandom.com" target="_blank" style="color:#666">Beyblade Fandom Wiki</a>
-    （評級/數據）|
-    <a href="https://beyblade.phstudy.org" target="_blank" style="color:#666">beyblade.phstudy.org</a>
-    （參考圖）
+    產品圖片版權屬 Takara Tomy 所有 |
+    數據來源：Beyblade Fandom Wiki
   </div>
 </footer>
 
