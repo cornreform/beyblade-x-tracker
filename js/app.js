@@ -33,8 +33,8 @@
       world_champion: GLOBAL_DB.champion_combos ? GLOBAL_DB.champion_combos.world_championship_2025 : null
     };
     partsData = {
-      ratchets: PARTS_DATA.ratchets.map(function(g) { return {code: g.id, name: g.name, type: g.type, best_for: g.note, source: g.note, image: '/parts/gear_' + g.id.replace('-','_') + '.png'}; }),
-      bits: PARTS_DATA.bits.map(function(a) { return {code: a.id, name: a.name, type: a.type, best_for: a.note, source: a.note, image: '/parts/axis_' + a.id + '.png'}; }),
+      ratchets: PARTS_DATA.ratchets.map(function(g) { return {code: g.id, name: g.name, type: g.type, best_for: g.note, source: g.note, image: '/parts/ratchet_' + g.id.replace('-','_') + '.png'}; }),
+      bits: PARTS_DATA.bits.map(function(a) { return {code: a.id, name: a.name, type: a.type, best_for: a.note, source: a.note, image: '/parts/bit_' + a.id + '.png'}; }),
       recommended_combos: []
     };
     personalData = loadPersonalFromLS();
