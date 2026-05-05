@@ -1,21 +1,16 @@
 {
   "date": "2026-05-05",
-  "headline": "📰 2026年5月5日 資訊 (2 則)",
+  "headline": "📰 2026年5月5日 資訊 (1 則)",
   "items": [
     {
-      "title": "Beyblades",
-      "summary": "HN: Beyblades",
-      "source": "Hacker News",
-      "url": "https://www.nytimes.com/2012/03/22/garden/beyblades-a-japanese-phenomenon-invade-american-homes.html",
-      "age": ""
-    },
-    {
-      "title": "The SF Underground Beyblade League",
-      "summary": "HN: The SF Underground Beyblade League",
-      "source": "Hacker News",
-      "url": "https://sfbayblade.com/",
-      "age": ""
+      "title": "List of Hasbro Beyblade Burst App QR Codes",
+      "summary": "Wiki: List of Hasbro Beyblade Burst App QR Codes",
+      "source": "Beyblade Wiki",
+      "url": "https://beyblade.fandom.com/wiki/List_of_Hasbro_Beyblade_Burst_App_QR_Codes",
+      "age": "2026-05-05T07:51:38Z",
+      "image_url": null,
+      "type": "forum"
     }
   ],
-  "generated_at": "2026-05-05T16:38:00+08:00"
+  "generated_at": "2026-05-05T16:42:24+08:00"
 }
