@@ -1,6 +1,6 @@
 {
   "date": "2026-05-05",
-  "headline": "📰 2026年5月5日 資訊 (5 則)",
+  "headline": "📰 2026年5月5日 資訊 (2 則)",
   "items": [
     {
       "title": "Beyblades",
@@ -15,28 +15,7 @@
       "source": "Hacker News",
       "url": "https://sfbayblade.com/",
       "age": ""
-    },
-    {
-      "title": "A simple util to make rollback easy in complex nested promises",
-      "summary": "HN: A simple util to make rollback easy in complex nested promises",
-      "source": "Hacker News",
-      "url": "https://www.npmjs.com/package/node-async-rollback",
-      "age": ""
-    },
-    {
-      "title": "A simple util to make reverting easy for complex nested promises",
-      "summary": "HN: A simple util to make reverting easy for complex nested promises",
-      "source": "Hacker News",
-      "url": "https://www.npmjs.com/package/node-with-revert",
-      "age": ""
-    },
-    {
-      "title": "Deciphering the Bengladesh bank heist",
-      "summary": "HN: Deciphering the Bengladesh bank heist",
-      "source": "Hacker News",
-      "url": "https://www.niceideas.ch/roller2/badtrash/entry/deciphering-the-bengladesh-bank-heist",
-      "age": ""
     }
   ],
-  "generated_at": "2026-05-05T16:36:59+08:00"
+  "generated_at": "2026-05-05T16:38:00+08:00"
 }
