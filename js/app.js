@@ -169,13 +169,16 @@
     render();
   }
 
-  function renderParts() {
+  function renderParts(searchQuery) {
     var el = document.getElementById('content');
+    var filtered = searchQuery ? searchParts(searchQuery) : null;
+    var ratchetsToShow = filtered ? filtered.ratchets : PARTS_DATA.ratchets;
+    var bitsToShow = filtered ? filtered.bits : PARTS_DATA.bits;
     var html = '<div style="margin-bottom:24px">';
     html += '<div class="section-title" style="margin-top:24px">⚙️ 齒輪 (Ratchet)</div>';
     html += '<div class="grid">';
-    for (var i = 0; i < PARTS_DATA.ratchets.length; i++) {
-      var r = PARTS_DATA.ratchets[i];
+    for (var i = 0; i < ratchetsToShow.length; i++) {
+      var r = ratchetsToShow[i];
       var ratchetImg = '/parts/ratchet_' + r.id.replace('-', '_') + '.png';
       html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + r.name + '</span><span class="card-tier">齒輪</span></div>';
       html += '<img src="' + ratchetImg + '" alt="' + r.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
@@ -185,8 +188,8 @@
     html += '</div></div>';
     html += '<div style="margin-bottom:24px">';
     html += '<div class="section-title" style="margin-top:24px">🎯 中軸 (Bit)</div><div class="grid">';
-    for (var m = 0; m < PARTS_DATA.bits.length; m++) {
-      var a = PARTS_DATA.bits[m];
+    for (var m = 0; m < bitsToShow.length; m++) {
+      var a = bitsToShow[m];
       var bitImg = '/parts/bit_' + a.id + (a.id === 'P' ? '.jpg' : '.png');
       html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + a.name + '</span><span class="card-tier">中軸</span></div>';
       html += '<img src="' + bitImg + '" alt="' + a.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
@@ -367,7 +370,26 @@
     render();
   }
 
-  function doSearch() { render(); }
+  function searchParts(query) {
+    if (!query) return null;
+    query = query.toLowerCase();
+    var filteredRatchets = PARTS_DATA.ratchets.filter(function(r) {
+      return r.id.toLowerCase().indexOf(query) !== -1 || r.name.toLowerCase().indexOf(query) !== -1;
+    });
+    var filteredBits = PARTS_DATA.bits.filter(function(b) {
+      return b.id.toLowerCase().indexOf(query) !== -1 || b.name.toLowerCase().indexOf(query) !== -1;
+    });
+    return { ratchets: filteredRatchets, bits: filteredBits };
+  }
+
+  function doSearch() {
+    if (currentTab === 'parts') {
+      var query = document.getElementById('searchBox').value;
+      renderParts(query);
+    } else {
+      render();
+    }
+  }
 
   function showDetail(code, isPersonal) {
     var data = isPersonal ? personalData : globalData;

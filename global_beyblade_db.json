@@ -896,7 +896,7 @@
       "name_jp": "フェニックスフレア",
       "lock": "Z9-80",
       "axis": "WW",
-      "axis_type": "Wide Wedge",
+      "axis_type": "Wall Wedge",
       "spin": "右",
       "type": "攻擊型",
       "tier": "T1",
