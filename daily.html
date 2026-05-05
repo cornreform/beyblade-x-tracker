@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#6c5ce7">
+<meta name="description" content="爆旋陀螺X 每日最新資訊">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="陀螺每日資訊">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/png" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/icon-512.png">
+<title>📰 爆旋陀螺X 每日資訊</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #0f0f23;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+header {
+  background: #1a1a2e;
+  border-bottom: 1px solid #2a2a4a;
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6c5ce7;
+}
+.header-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+main {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.card {
+  background: #1a1a2e;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #2a2a4a;
+  margin-bottom: 16px;
+}
+.card:last-child { margin-bottom: 0; }
+.item-date {
+  font-size: 0.75rem;
+  color: #6c5ce7;
+  margin-bottom: 6px;
+}
+.item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.item-summary {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.7;
+}
+.item-source {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #666;
+  background: #2a2a4a;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+.archive-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #2a2a4a;
+}
+.archive-title {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+}
+.archive-day {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+.archive-day:hover {
+  background: #2a2a4a;
+  border-color: #6c5ce7;
+  color: #fff;
+}
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6c5ce7;
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+.back-btn:hover { color: #8b7ff0; }
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #555;
+}
+footer {
+  text-align: center;
+  padding: 24px 20px;
+  color: #444;
+  font-size: 0.75rem;
+}
+@media (max-width: 600px) {
+  .archive-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>📰 每日資訊</h1>
+    <span class="header-date" id="today"></span>
+  </div>
+</header>
+
+<main id="main">
+  <a href="/" class="back-btn">← 返回收藏庫</a>
+  <div id="content">
+    <div class="loading">載入中...</div>
+  </div>
+</main>
+
+<footer>
+  © 2026 Beyblade X 收藏庫 — 每日自動更新
+</footer>
+
+<script>
+const DAILY_DIR = 'daily';
+const ARCHIVE_DIR = 'daily/archive';
+const ITEMS_PER_PAGE = 20;
+
+function formatDate(iso) {
+  const d = new Date(iso);
+  return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+}
+
+function getToday() {
+  const d = new Date();
+  document.getElementById('today').textContent = `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+}
+
+async function loadLatest() {
+  try {
+    const res = await fetch(`${DAILY_DIR}/latest.json?t=${Date.now()}`);
+    if (!res.ok) throw new Error('No data');
+    const data = await res.json();
+    renderLatest(data);
+  } catch (e) {
+    document.getElementById('content').innerHTML = `
+      <div class="empty-state">
+        <div style="font-size:2rem;margin-bottom:12px">📭</div>
+        <div>暫時沒有今日資訊</div>
+        <div style="font-size:0.8rem;margin-top:8px;color:#555">每日凌晨 04:00 HKT 自動更新</div>
+      </div>`;
+  }
+}
+
+function renderLatest(data) {
+  const html = `
+    <div class="card" style="border-left:4px solid #6c5ce7">
+      <div class="item-date">${formatDate(data.date)}</div>
+      <div class="item-title" style="font-size:1.1rem">${data.headline}</div>
+    </div>
+    ${data.items.map(item => `
+    <div class="card">
+      <div class="item-date">${formatDate(item.time || data.date)}</div>
+      <div class="item-title">${item.title}</div>
+      <div class="item-summary">${item.summary}</div>
+      ${item.source ? `<span class="item-source">📌 ${item.source}</span>` : ''}
+    </div>
+    `).join('')}
+    ${data.generated_at ? `<div style="text-align:center;color:#444;font-size:0.7rem;margin-top:16px">更新時間：${new Date(data.generated_at).toLocaleString('zh-HK')}</div>` : ''}
+  `;
+  document.getElementById('content').innerHTML = html;
+  loadArchive();
+}
+
+async function loadArchive() {
+  try {
+    const res = await fetch(`${ARCHIVE_DIR}/list.json?t=${Date.now()}`);
+    if (!res.ok) return;
+    const dates = await res.json();
+    if (!dates || dates.length === 0) return;
+
+    const section = document.createElement('div');
+    section.className = 'archive-section';
+    section.innerHTML = `
+      <div class="archive-title">📁 往日資訊</div>
+      <div class="archive-grid">
+        ${dates.map(d => `
+          <div class="archive-day" onclick="loadArchiveDay('${d}')">${d.slice(5).replace('-','/')}</div>
+        `).join('')}
+      </div>
+    `;
+    document.getElementById('content').appendChild(section);
+  } catch (e) {}
+}
+
+async function loadArchiveDay(date) {
+  try {
+    const res = await fetch(`${ARCHIVE_DIR}/${date}.json?t=${Date.now()}`);
+    if (!res.ok) return;
+    const data = await res.json();
+    document.getElementById('content').innerHTML = `
+      <a href="daily.html" class="back-btn">← 返回今日資訊</a>
+      <div class="card" style="border-left:4px solid #6c5ce7">
+        <div class="item-date">${formatDate(data.date)}</div>
+        <div class="item-title" style="font-size:1.1rem">${data.headline}</div>
+      </div>
+      ${data.items.map(item => `
+      <div class="card">
+        <div class="item-date">${formatDate(item.time || data.date)}</div>
+        <div class="item-title">${item.title}</div>
+        <div class="item-summary">${item.summary}</div>
+        ${item.source ? `<span class="item-source">📌 ${item.source}</span>` : ''}
+      </div>
+      `).join('')}
+    `;
+    window.scrollTo(0,0);
+  } catch (e) {
+    document.getElementById('content').innerHTML = '<div class="empty-state">讀取失敗</div>';
+  }
+}
+
+getToday();
+loadLatest();
+</script>
+</body>
+</html>
