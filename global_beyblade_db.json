@@ -24,7 +24,7 @@
       "release": "2023-07-15",
       "price": 1980,
       "name_hk": "翔龍神劍",
-      "image": "/parts/top_BX-01.png"
+      "image": "/parts/top/BX-01.png"
     },
     {
       "code": "BX-02",
@@ -40,7 +40,7 @@
       "release": "2023-07-15",
       "price": 1980,
       "name_hk": "煉獄赤鐮",
-      "image": "/parts/top_BX-02.png"
+      "image": "/parts/top/BX-02.png"
     },
     {
       "code": "BX-03",
@@ -56,7 +56,7 @@
       "release": "2023-07-15",
       "price": 1980,
       "name_hk": "巫師弩箭",
-      "image": "/parts/top_BX-03.png"
+      "image": "/parts/top/BX-03.png"
     },
     {
       "code": "BX-04",
@@ -72,7 +72,7 @@
       "meta": "衝撃吸收防禦，ダンパー反彈",
       "release": "2023-07-15",
       "price": 1980,
-      "image": "/parts/top_BX-04.png"
+      "image": "/parts/top/BX-04.png"
     },
     {
       "code": "BX-13",
@@ -200,7 +200,7 @@
       "meta": "🔥 T0 meta核心！最強攻擊型之一",
       "release": "2023-12-27",
       "price": 2420,
-      "image": "/parts/top_BX-23.png"
+      "image": "/parts/top/BX-23.png"
     },
     {
       "code": "BX-24",
@@ -440,7 +440,7 @@
       "release": "2026-05-16",
       "price": 2200,
       "name_hk": "翔龍突擊",
-      "image": "/parts/top_BX-49.png"
+      "image": "/parts/top/BX-49.png"
     },
     {
       "code": "UX-01",
@@ -456,7 +456,7 @@
       "release": "2024-03-30",
       "price": 1980,
       "name_hk": "翔龍破壞劍",
-      "image": "/parts/top_UX-01.png"
+      "image": "/parts/top/UX-01.png"
     },
     {
       "code": "UX-02",
@@ -472,7 +472,7 @@
       "release": "2024-03-30",
       "price": 1980,
       "name_hk": "煉獄惡鎚",
-      "image": "/parts/top_UX-02.png"
+      "image": "/parts/top/UX-02.png"
     },
     {
       "code": "UX-03",
@@ -488,7 +488,7 @@
       "meta": "🔥 最強持久型！5-70DB meta定義",
       "release": "2024-03-30",
       "price": 1400,
-      "image": "/parts/top_UX-03.png"
+      "image": "/parts/top/UX-03.png"
     },
     {
       "code": "UX-05",
@@ -504,7 +504,7 @@
       "release": "2024-05-18",
       "price": 1400,
       "name_hk": "忍者幻影",
-      "image": "/parts/top_UX-05.png"
+      "image": "/parts/top/UX-05.png"
     },
     {
       "code": "UX-06",
@@ -520,7 +520,7 @@
       "release": "2024-08-10",
       "price": 1400,
       "name_hk": "獅王徽章",
-      "image": "/parts/top_UX-06.png"
+      "image": "/parts/top/UX-06.png"
     },
     {
       "code": "UX-07",
@@ -536,7 +536,7 @@
       "release": "2024-08-10",
       "price": 4100,
       "name_hk": "鳳凰炎舵",
-      "image": "/parts/top_UX-07.png"
+      "image": "/parts/top/UX-07.png"
     },
     {
       "code": "UX-08",
@@ -552,7 +552,7 @@
       "meta": "特殊抵消環+FB軸，防禦最強",
       "release": "2024-10-12",
       "price": 2080,
-      "image": "/parts/top_UX-08.png"
+      "image": "/parts/top/UX-08.png"
     },
     {
       "code": "UX-09",
@@ -568,7 +568,7 @@
       "meta": "劍型發射器同梱",
       "release": "2024-11-02",
       "price": 3300,
-      "image": "/parts/top_UX-09.png"
+      "image": "/parts/top/UX-09.png"
     },
     {
       "code": "UX-10",
@@ -583,7 +583,7 @@
       "meta": "Customize Set U",
       "release": "2024-11-02",
       "price": 5700,
-      "image": "/parts/top_UX-10.png",
+      "image": "/parts/top/UX-10.png",
       "name_hk": "改造套裝U"
     },
     {
@@ -600,7 +600,7 @@
       "meta": "🔥 T0 meta！9-60LR高攻持久兼備",
       "release": "2024-12-28",
       "price": 2420,
-      "image": "/parts/top_UX-11.png"
+      "image": "/parts/top/UX-11.png"
     },
     {
       "code": "UX-12",
@@ -743,7 +743,7 @@
       "meta": "🔥 CX旗艦！S6重量+Vortex軸",
       "release": "2025-03-29",
       "price": 2200,
-      "image": "/parts/top_CX-01.png",
+      "image": "/parts/top/CX-01.png",
       "name_hk": "蒼龍勇氣"
     },
     {
@@ -759,7 +759,7 @@
       "meta": "R4-55LO持久+低重心",
       "release": "2025-03-29",
       "price": 2200,
-      "image": "/parts/top_CX-02.png",
+      "image": "/parts/top/CX-02.png",
       "name_hk": "巫師弧光"
     },
     {
@@ -775,7 +775,7 @@
       "meta": "B6-80W重防禦型",
       "release": "2025-03-29",
       "price": 1400,
-      "image": "/parts/top_CX-03.png",
+      "image": "/parts/top/CX-03.png",
       "name_hk": "英仙幽暗"
     },
     {
@@ -791,7 +791,7 @@
       "meta": "Random Booster Vol.6",
       "release": "2025-06-28",
       "price": 1600,
-      "image": "/parts/top_CX-05.png",
+      "image": "/parts/top/CX-05.png",
       "name_hk": "惡魔獵魂"
     },
     {
@@ -807,7 +807,7 @@
       "meta": "Random Booster Select",
       "release": "2025-08-09",
       "price": 1600,
-      "image": "/parts/top_CX-06.png",
+      "image": "/parts/top/CX-06.png",
       "name_hk": "狐狸筆刷"
     },
     {
@@ -823,7 +823,7 @@
       "meta": "天馬爆擊！二段加速軸",
       "release": "2025-10-11",
       "price": 2420,
-      "image": "/parts/top_CX-07.png",
+      "image": "/parts/top/CX-07.png",
       "name_hk": "天馬爆擊"
     },
     {
@@ -839,7 +839,7 @@
       "meta": "Random Booster Vol.7",
       "release": "2025-12-27",
       "price": 1600,
-      "image": "/parts/top_CX-08.png",
+      "image": "/parts/top/CX-08.png",
       "name_hk": "地獄犬烈焰"
     },
     {
@@ -855,7 +855,7 @@
       "meta": "太陽系攻擊型",
       "release": "2026-01-10",
       "price": 2200,
-      "image": "/parts/top_CX-09.png",
+      "image": "/parts/top/CX-09.png",
       "name_hk": "太陽日蝕"
     },
     {
@@ -871,7 +871,7 @@
       "meta": "F0-60輕量+DB軸防禦",
       "release": "2026-02-07",
       "price": 1400,
-      "image": "/parts/top_CX-10.png",
+      "image": "/parts/top/CX-10.png",
       "name_hk": "銀狼狩獵"
     },
     {

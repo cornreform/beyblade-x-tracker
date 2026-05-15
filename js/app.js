@@ -33,8 +33,8 @@
       world_champion: GLOBAL_DB.champion_combos ? GLOBAL_DB.champion_combos.world_championship_2025 : null
     };
     partsData = {
-      ratchets: PARTS_DATA.ratchets.map(function(g) { return {code: g.id, name: g.name, type: g.type, best_for: g.note, source: g.note, image: '/parts/ratchet_' + g.id.replace('-','_') + '.png'}; }),
-      bits: PARTS_DATA.bits.map(function(a) { return {code: a.id, name: a.name, type: a.type, best_for: a.note, source: a.note, image: '/parts/bit_' + a.id + '.png'}; }),
+      ratchets: PARTS_DATA.ratchets.map(function(g) { return {code: g.id, name: g.name, type: g.type, best_for: g.note, source: g.note, image: '/parts/ratchet/' + g.id + '.png'}; }),
+      bits: PARTS_DATA.bits.map(function(a) { return {code: a.id, name: a.name, type: a.type, best_for: a.note, source: a.note, image: '/parts/bit/' + a.id + '.png'}; }),
       recommended_combos: []
     };
     personalData = loadPersonalFromLS();
@@ -179,7 +179,7 @@
     html += '<div class="grid">';
     for (var i = 0; i < ratchetsToShow.length; i++) {
       var r = ratchetsToShow[i];
-      var ratchetImg = '/parts/ratchet_' + r.id.replace('-', '_') + '.png';
+      var ratchetImg = '/parts/ratchet/' + r.id + '.png';
       html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + r.name + '</span><span class="card-tier">齒輪</span></div>';
       html += '<img src="' + ratchetImg + '" alt="' + r.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
       html += '<div class="specs" style="margin-top:8px"><div class="spec"><span class="spec-label">類型</span><span class="spec-value">' + r.type + '</span></div></div>';
@@ -190,7 +190,7 @@
     html += '<div class="section-title" style="margin-top:24px">🎯 中軸 (Bit)</div><div class="grid">';
     for (var m = 0; m < bitsToShow.length; m++) {
       var a = bitsToShow[m];
-      var bitImg = '/parts/bit_' + a.id + (a.id === 'P' ? '.jpg' : '.png');
+      var bitImg = '/parts/bit/' + a.id + '.png';
       html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + a.name + '</span><span class="card-tier">中軸</span></div>';
       html += '<img src="' + bitImg + '" alt="' + a.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
       html += '<div class="specs" style="margin-top:8px"><div class="spec"><span class="spec-label">類型</span><span class="spec-value">' + a.type + '</span></div></div>';
