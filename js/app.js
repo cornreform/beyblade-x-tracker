@@ -88,10 +88,12 @@
       img = '<img src="' + t.image + '" alt="' + name + '" style="width:100%;max-height:120px;object-fit:contain;margin-bottom:12px;border-radius:8px;" onerror="this.style.display=\'none\'">';
     }
     var tierClass = tier.replace('.', '_');
+    var typeClassMap = {'攻擊型': 'type-attack', '防禦型': 'type-defense', '持久型': 'type-stamina', '平衡型': 'type-balance'};
+    var typeClass = typeClassMap[type] || '';
     var footer = isOwned
       ? '<div class="owned-footer"><span class="owned-tag">✓ 已擁有</span><span class="tier-inline tier-' + tierClass + '">📊 ' + tier + '</span></div>'
       : '<div class="buy-score">' + renderBuyScore(tier) + '</div>';
-    return '<div class="card ' + tierClass + (isOwned ? ' owned' : '') + '" onclick="showDetail(\'' + code + '\', ' + isPersonal + ')">' +
+    return '<div class="card ' + typeClass + ' ' + tierClass + (isOwned ? ' owned' : '') + '" onclick="showDetail(\'' + code + '\', ' + isPersonal + ')">' +
       '<div class="card-header"><span class="card-id">' + code + '</span><span class="card-tier tier-' + tierClass + '">' + tier + '</span></div>' +
       img +
       '<div class="card-name">' + name + '</div>' +
@@ -180,7 +182,13 @@
     for (var i = 0; i < ratchetsToShow.length; i++) {
       var r = ratchetsToShow[i];
       var ratchetImg = '/parts/ratchet/' + r.id + '.png';
-      html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + r.name + '</span><span class="card-tier">齒輪</span></div>';
+      var ratchetTypeClassMap = {'Attack': 'type-attack', 'Defense': 'type-defense', 'Stamina': 'type-stamina', 'Balance': 'type-balance'};
+      var ratchetTypeClass = ratchetTypeClassMap[r.type] || '';
+      var ratchetTypeBadgeClassMap = {'Attack': 'type-badge-attack', 'Defense': 'type-badge-defense', 'Stamina': 'type-badge-stamina', 'Balance': 'type-badge-balance'};
+      var ratchetTypeBadgeClass = ratchetTypeBadgeClassMap[r.type] || '';
+      var ratchetTypeNameMap = {'Attack': '攻擊型', 'Defense': '防禦型', 'Stamina': '持久型', 'Balance': '平衡型'};
+      var ratchetChineseType = ratchetTypeNameMap[r.type] || r.type;
+      html += '<div class="card ' + ratchetTypeClass + '" style="cursor:default"><div class="card-header"><span class="card-name">' + r.name + '</span><span class="card-tier ' + ratchetTypeBadgeClass + '">' + ratchetChineseType + '</span></div>';
       html += '<img src="' + ratchetImg + '" alt="' + r.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
       html += '<div class="specs" style="margin-top:8px"><div class="spec"><span class="spec-label">類型</span><span class="spec-value">' + r.type + '</span></div></div>';
       html += '<div style="font-size:0.8rem;color:#888;margin-top:8px">📌 ' + r.note + '</div></div>';
@@ -191,7 +199,13 @@
     for (var m = 0; m < bitsToShow.length; m++) {
       var a = bitsToShow[m];
       var bitImg = '/parts/bit/' + a.id + '.png';
-      html += '<div class="card" style="cursor:default"><div class="card-header"><span class="card-name">' + a.name + '</span><span class="card-tier">中軸</span></div>';
+      var bitTypeClassMap = {'Attack': 'type-attack', 'Defense': 'type-defense', 'Stamina': 'type-stamina', 'Balance': 'type-balance', 'Strike': 'type-attack'};
+      var bitTypeClass = bitTypeClassMap[a.type] || '';
+      var bitTypeBadgeClassMap = {'Attack': 'type-badge-attack', 'Defense': 'type-badge-defense', 'Stamina': 'type-badge-stamina', 'Balance': 'type-badge-balance', 'Strike': 'type-badge-attack'};
+      var bitTypeBadgeClass = bitTypeBadgeClassMap[a.type] || '';
+      var bitTypeNameMap = {'Attack': '攻擊型', 'Defense': '防禦型', 'Stamina': '持久型', 'Balance': '平衡型', 'Strike': '攻擊型'};
+      var bitChineseType = bitTypeNameMap[a.type] || a.type;
+      html += '<div class="card ' + bitTypeClass + '" style="cursor:default"><div class="card-header"><span class="card-name">' + a.name + '</span><span class="card-tier ' + bitTypeBadgeClass + '">' + bitChineseType + '</span></div>';
       html += '<img src="' + bitImg + '" alt="' + a.name + '" style="width:100%;max-height:100px;object-fit:contain;margin:8px 0;border-radius:8px;" onerror="this.style.display=\'none\'">';
       html += '<div class="specs" style="margin-top:8px"><div class="spec"><span class="spec-label">類型</span><span class="spec-value">' + a.type + '</span></div></div>';
       html += '<div style="font-size:0.8rem;color:#888;margin-top:8px">📌 ' + a.note + '</div></div>';
