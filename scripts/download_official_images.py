@@ -22,33 +22,31 @@ def code_to_filename(code):
     return f"{code}.png"
 
 def process_image(src_path, dst_path):
-    """Process image: mogrify + pngquant. Returns (success, error)."""
+    """Process image: convert (remove white bg + trim + resize) + pngquant. Returns (success, error)."""
     temp_file = f"/tmp/official_img_{os.getpid()}_{os.path.basename(src_path)}.png"
+    temp_clean = f"/tmp/official_clean_{os.getpid()}_{os.path.basename(src_path)}.png"
     try:
-        # mogrify - resize, trim, convert to png
+        # convert - remove white background, trim, resize
         cmd1 = [
-            'mogrify',
-            '-format', 'png',
-            '-resize', '500x>',
-            '-fuzz', '5%',
-            '-trim',
-            '-write', temp_file,
-            src_path
+            'convert', src_path,
+            '-fuzz', '15%', '-transparent', 'white',
+            '-trim', '-resize', '500x>',
+            temp_clean
         ]
         result = subprocess.run(cmd1, capture_output=True, text=True, timeout=30)
         if result.returncode != 0:
-            return False, f"mogrify: {result.stderr[:100]}"
+            return False, f"convert: {result.stderr[:100]}"
         
-        if not os.path.exists(temp_file):
-            return False, "temp file not created"
+        if not os.path.exists(temp_clean):
+            return False, "clean temp file not created"
         
-        # pngquant - compress
+        # pngquant - compress with alpha
         cmd2 = [
             'pngquant',
             '--quality=65-80',
             '--output', dst_path,
             '--force',
-            temp_file
+            temp_clean
         ]
         result = subprocess.run(cmd2, capture_output=True, text=True, timeout=30)
         if result.returncode != 0:
@@ -58,8 +56,9 @@ def process_image(src_path, dst_path):
     except subprocess.TimeoutExpired:
         return False, "timeout"
     finally:
-        if os.path.exists(temp_file):
-            os.remove(temp_file)
+        for f in [temp_file, temp_clean]:
+            if os.path.exists(f):
+                os.remove(f)
 
 def download_image(url, dest_path):
     """Download image from URL to dest path. Returns (success, error)."""
