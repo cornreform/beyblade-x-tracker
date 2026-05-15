@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" href="/icon-512.png">
 <link rel="apple-touch-icon" href="/icon-512.png">
 <title>🌀 爆旋陀螺X 收藏庫</title>
-<link rel="stylesheet" href="css/styles.css?v=2.0">
+<link rel="stylesheet" href="css/styles.css?v=3.0">
 </head>
 <body>
 
@@ -80,8 +80,20 @@
 </div>
 
 <!-- Scripts -->
-<script src="js/supabase_client.js?v=2.0"></script>
-<script src="js/app.js?v=2.0"></script>
+<script>
+// Force clear all service worker caches and reload
+if ('serviceWorker' in navigator) {
+  caches.keys().then(function(names) {
+    return Promise.all(names.map(function(n) { return caches.delete(n); }));
+  }).then(function() {
+    navigator.serviceWorker.getRegistrations().then(function(regs) {
+      regs.forEach(function(r) { r.unregister(); });
+    });
+  });
+}
+</script>
+<script src="js/supabase_client.js?v=3.0"></script>
+<script src="js/app.js?v=3.0"></script>
 
 <footer style="text-align:center;padding:24px 20px;color:#444;font-size:0.75rem;line-height:1.8">
   <div>© 2026 Beyblade X 收藏庫 — 個人工具</div>

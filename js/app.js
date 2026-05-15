@@ -494,12 +494,33 @@
     setTimeout(function() { if (btn) btn.classList.remove('spin'); }, 500);
   }
 
-  // Service Worker for offline caching
+  // Service Worker 更新強制清cache（2026-05-16: network-first模式）
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/sw.js')
-        .then(function(reg) { console.log('SW registered:', reg.scope); })
+      navigator.serviceWorker.register('/sw.js?v=3')
+        .then(function(reg) {
+          console.log('SW registered:', reg.scope);
+          // 檢查是否有等待中的SW更新
+          if (reg.waiting) {
+            reg.waiting.postMessage({action: 'skipWaiting'});
+          }
+          // 監聽更新
+          reg.addEventListener('updatefound', function() {
+            var newSW = reg.installing;
+            newSW.addEventListener('statechange', function() {
+              if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+                newSW.postMessage({action: 'skipWaiting'});
+                window.location.reload();
+              }
+            });
+          });
+        })
         .catch(function(err) { console.log('SW registration failed:', err); });
+    });
+    
+    // 監聽SW控制權變更 -> reload
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+      window.location.reload();
     });
   }
 
