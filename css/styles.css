@@ -1,4 +1,45 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ========================================
+   CSS Custom Properties - Type Color System
+   Inspired by go-shoot.github.io Beyblade parts tool
+   ======================================== */
+:root {
+  /* Type colors */
+  --attack:   hsl(200, 70%, 45%);  /* Blue - attack type */
+  --defense:  hsl(120, 70%, 40%);  /* Green - defense type */
+  --stamina:  hsl(30, 90%, 48%);   /* Orange - stamina type */
+  --balance:  hsl(0, 80%, 50%);     /* Red - balance type */
+  
+  /* Per-type hue variables for backgrounds */
+  --hue-attack: 200;
+  --hue-defense: 120;
+  --hue-stamina: 30;
+  --hue-balance: 0;
+}
+
+/* Type color badges */
+.type-badge-attack { background: rgba(72, 219, 251, 0.2); color: #48dbfb; }
+.type-badge-defense { background: rgba(29, 209, 161, 0.2); color: #1dd1a1; }
+.type-badge-stamina { background: rgba(254, 202, 87, 0.2); color: #feca57; }
+.type-badge-balance { background: rgba(255, 107, 107, 0.2); color: #ff6b6b; }
+
+/* Type-specific card backgrounds (for dynamically generated cards) */
+.card.type-attack { --hue: var(--hue-attack); }
+.card.type-defense { --hue: var(--hue-defense); }
+.card.type-stamina { --hue: var(--hue-stamina); }
+.card.type-balance { --hue: var(--hue-balance); }
+
+/* Type-colored spec values for parts page */
+.spec-value.type-attack { color: #48dbfb; }
+.spec-value.type-defense { color: #1dd1a1; }
+.spec-value.type-stamina { color: #feca57; }
+.spec-value.type-balance { color: #ff6b6b; }
+
+/* Better hover transitions for all interactive elements */
+button, .tab, .filter-chip, .card {
+  transition: filter 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #0f0f23;
@@ -45,7 +86,10 @@ header p { color: #888; font-size: 0.95rem; }
   border: 1px solid #2a2a4a; background: #1a1a2e; color: #e0e0e0;
   font-size: 1rem; margin-bottom: 16px; outline: none;
 }
-.search-box:focus { border-color: #6c5ce7; }
+.search-box:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 12px rgba(108, 92, 231, 0.2);
+}
 
 .filters {
   display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
@@ -66,15 +110,22 @@ header p { color: #888; font-size: 0.95rem; }
 }
 .card {
   background: #1a1a2e; border-radius: 16px; padding: 20px;
-  border: 1px solid #2a2a4a; transition: all 0.2s; cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 1px rgba(42, 42, 74, 0.5), 0 4px 16px rgba(0,0,0,0.3);
+  transition: all 0.3s ease; cursor: pointer;
   position: relative;
 }
 .card img {
   position: relative; z-index: 1;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.1));
+  transition: filter 0.3s;
 }
 .card:hover {
-  transform: translateY(-3px); border-color: #4a4a6a;
-  box-shadow: 0 8px 32px rgba(108,92,231,0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px rgba(108, 92, 231, 0.3), 0 0 12px rgba(108, 92, 231, 0.15), 0 8px 32px rgba(0,0,0,0.4);
+}
+.card:hover img {
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
 }
 .card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
