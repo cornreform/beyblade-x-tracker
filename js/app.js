@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-05-18",
+  "updated": "2026-05-20",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -485,7 +485,7 @@
       "axis_type": "Cyclone",
       "spin": "左",
       "type": "攻擊型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "🔥 唯一左回転！meta稀有價值",
       "release": "2024-07-13",
       "price": 2321,
@@ -613,7 +613,7 @@
       "axis_type": "Friction Flat",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "最新Dran系攻擊型，低重心4-50",
       "release": "2026-05-16",
       "price": 2200,
@@ -726,7 +726,7 @@
       "axis_type": "Flat Ball",
       "spin": "右",
       "type": "防禦型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "特殊抵消環+FB軸，防禦最強",
       "release": "2024-10-12",
       "price": 2080,
@@ -886,7 +886,7 @@
       "axis_type": "Jolt",
       "spin": "右",
       "type": "平衡型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "🔥 龍系新世代，3-70J強力",
       "release": "2025-12-27",
       "price": 2420,
@@ -1176,7 +1176,7 @@
       "type": "持久型",
       "tier": "T2",
       "meta": "Random Booster Vol.10",
-      "release": "2026-06-28",
+      "release": "2026-04-25",
       "price": 1600,
       "image": "parts/top_CX-17.png"
     },
