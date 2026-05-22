@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-05-22",
+  "updated": "2026-05-23",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -1222,7 +1222,7 @@
       "axis_type": "GearNeedle",
       "spin": "右旋",
       "type": "防禦型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "",
       "release": "2025-12-??",
       "price": 0,
