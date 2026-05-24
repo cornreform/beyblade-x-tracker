@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-05-24",
+  "updated": "2026-05-25",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -342,7 +342,7 @@
       "axis_type": "Gear Flat",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T3",
+      "tier": "T2",
       "meta": "🔥 T0 meta核心！最強攻擊型之一",
       "release": "2023-12-27",
       "price": 2420,
@@ -821,7 +821,7 @@
       "axis_type": "Zap",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "攻擊型，0-70低重心+Z軸",
       "release": "2025-04-26",
       "price": 2200,
@@ -838,7 +838,7 @@
       "axis_type": "Under Flat",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "🔥 Deck Set！4-50超低重心+UF",
       "release": "2025-08-09",
       "price": 4200,
