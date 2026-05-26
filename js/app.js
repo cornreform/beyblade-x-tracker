@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-05-26",
+  "updated": "2026-05-27",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -581,7 +581,7 @@
       "axis_type": "Merge",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T0",
+      "tier": "T1",
       "meta": "攻擊型，6-70中度",
       "release": "2025-08-09",
       "price": 1500,
@@ -742,7 +742,7 @@
       "axis_type": "Level",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T0",
+      "tier": "T1",
       "meta": "劍型發射器、雪印",
       "release": "2024-11-02",
       "price": 3300,
@@ -1013,7 +1013,7 @@
       "axis_type": "Turbo",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T0",
+      "tier": "T1",
       "meta": "天馬爆擊！二段加速軸",
       "release": "2025-10-11",
       "price": 2420,
