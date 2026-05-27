@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-05-27",
+  "updated": "2026-05-28",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -629,7 +629,7 @@
       "axis_type": "Accel",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T0",
+      "tier": "T1",
       "meta": "🔥 T0 meta！1-60低重心+A軸超高攻",
       "release": "2024-03-30",
       "price": 1980,
@@ -774,7 +774,7 @@
       "axis_type": "Low Rush",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T0",
+      "tier": "T1",
       "meta": "🔥 T0 meta！9-60LR高攻持久兼備",
       "release": "2024-12-28",
       "price": 2420,
@@ -933,7 +933,7 @@
       "axis_type": "Vortex",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T3",
       "meta": "🔥 CX旗艦！S6重量+Vortex軸",
       "release": "2025-03-29",
       "price": 2200,
