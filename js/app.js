@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-05-29",
+  "updated": "2026-05-31",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -902,7 +902,7 @@
       "axis_type": "Wedge",
       "spin": "右",
       "type": "防禦型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "Random Booster Vol.8，繃帶伸長",
       "release": "2026-02-14",
       "price": 1400,
@@ -1222,7 +1222,7 @@
       "axis_type": "GearNeedle",
       "spin": "右旋",
       "type": "防禦型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "",
       "release": "2025-12-??",
       "price": 0,
@@ -1246,7 +1246,7 @@
     },
     {
       "code": "CX-19",
-      "name_en": "BrachioWhip",
+      "name_en": "BulletGriffon",
       "name_jp": "ブラキオウィップ",
       "name_hk": "BrachioWhip",
       "lock": "OW5-70",
@@ -1254,7 +1254,7 @@
       "axis_type": "Narrow",
       "spin": "R",
       "type": "持久型",
-      "tier": "T3",
+      "tier": "T1",
       "meta": "",
       "release": "2026-06-13",
       "price": 1600,
