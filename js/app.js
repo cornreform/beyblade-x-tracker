@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-05-31",
+  "updated": "2026-06-01",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -342,7 +342,7 @@
       "axis_type": "Gear Flat",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "🔥 T0 meta核心！最強攻擊型之一",
       "release": "2023-12-27",
       "price": 2420,
@@ -742,7 +742,7 @@
       "axis_type": "Level",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "劍型發射器、雪印",
       "release": "2024-11-02",
       "price": 3300,
@@ -1013,7 +1013,7 @@
       "axis_type": "Turbo",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "天馬爆擊！二段加速軸",
       "release": "2025-10-11",
       "price": 2420,
@@ -1110,7 +1110,7 @@
       "axis_type": "Impact",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "BK1-50超低重心+Impact軸",
       "release": "2026-03-28",
       "price": 2420,
@@ -1254,7 +1254,7 @@
       "axis_type": "Narrow",
       "spin": "R",
       "type": "持久型",
-      "tier": "T1",
+      "tier": "T0",
       "meta": "",
       "release": "2026-06-13",
       "price": 1600,
@@ -1410,7 +1410,8 @@
     },
     "update_note": "新增冠軍組合資料 + 香港中文譯名"
   }
-};// ===== PARTS DATA (ratchets + bits) =====
+};
+// ===== PARTS DATA (ratchets + bits) =====
   var PARTS_DATA = {"ratchets":[{"id":"0-80","name":"0-80","spin":"右","type":"Balance","note":"新系列齒輪"},{"id":"1-60","name":"1-60","spin":"右","type":"Defense","note":""},{"id":"1-70","name":"1-70","spin":"右","type":"Defense","note":""},{"id":"1-80","name":"1-80","spin":"右","type":"Stamina","note":"原裝配雅典娜"},{"id":"2-60","name":"2-60","spin":"左","type":"Stamina","note":"左手專用"},{"id":"2-70","name":"2-70","spin":"左","type":"Stamina","note":"原裝配巫師，T0.5"},{"id":"2-80","name":"2-80","spin":"左","type":"Stamina","note":"左手專用"},{"id":"3-60","name":"3-60","spin":"右","type":"Attack","note":""},{"id":"3-70","name":"3-70","spin":"右","type":"Attack","note":""},{"id":"3-80","name":"3-80","spin":"右","type":"Attack","note":""},{"id":"3-85","name":"3-85","spin":"右","type":"Attack","note":""},{"id":"4-55","name":"4-55","spin":"右","type":"Defense","note":""},{"id":"4-60","name":"4-60","spin":"右","type":"Defense","note":""},{"id":"4-70","name":"4-70","spin":"左","type":"Stamina","note":"配泰坦冥王"},{"id":"4-80","name":"4-80","spin":"右","type":"Stamina","note":"配奇蹟鳳凰"},{"id":"5-60","name":"5-60","spin":"右","type":"Balance","note":""},{"id":"5-70","name":"5-70","spin":"右","type":"Balance","note":""},{"id":"5-80","name":"5-80","spin":"右","type":"Balance","note":""},{"id":"6-80","name":"6-80","spin":"右","type":"Attack","note":"配烈焰魔龍"},{"id":"7-60","name":"7-60","spin":"右","type":"Stamina","note":""},{"id":"7-70","name":"7-70","spin":"右","type":"Stamina","note":""},{"id":"7-80","name":"7-80","spin":"右","type":"Stamina","note":""},{"id":"9-60","name":"9-60","spin":"右","type":"Stamina","note":"原裝配鳳凰飛翼，T0首選"},{"id":"9-70","name":"9-70","spin":"右","type":"Stamina","note":""},{"id":"9-80","name":"9-80","spin":"右","type":"Stamina","note":""}],"bits":[{"id":"A","name":"A (Admiral)","type":"Defense","note":"海軍形，平衡穩定"},{"id":"B","name":"B","type":"Defense","note":""},{"id":"BS","name":"BS (Bite Strike)","type":"Strike","note":""},{"id":"C","name":"C","type":"Defense","note":""},{"id":"D","name":"D (Defense)","type":"Defense","note":"防禦形，重量集中"},{"id":"DB","name":"DB (Double Ball)","type":"Defense","note":"雙球形，重心低"},{"id":"E","name":"E","type":"Stamina","note":""},{"id":"F","name":"F (Fly)","type":"Stamina","note":"飛行形，重心偏外"},{"id":"FB","name":"FB (Fly Bite)","type":"Strike","note":""},{"id":"G","name":"G","type":"Defense","note":""},{"id":"GF","name":"GF (Gear Flat)","type":"Stamina","note":"齒輪平面形"},{"id":"GL","name":"GL","type":"Stamina","note":""},{"id":"GN","name":"GN (Gear Needle)","type":"Attack","note":"齒輪針形"},{"id":"GP","name":"GP","type":"Stamina","note":""},{"id":"GR","name":"GR (Gear Rush)","type":"Attack","note":"齒輪攻擊形"},{"id":"H","name":"H (Hold)","type":"Stamina","note":"握力形，抓地力強"},{"id":"HN","name":"HN (Hold Needle)","type":"Attack","note":""},{"id":"HT","name":"HT (Hold Trip)","type":"Stamina","note":""},{"id":"J","name":"J","type":"Defense","note":""},{"id":"K","name":"K (Knuckle)","type":"Attack","note":"指節攻擊形"},{"id":"L","name":"L (Left)","type":"Stamina","note":"左手專用，齒輪左旋"},{"id":"LF","name":"LF (Low Fly)","type":"Stamina","note":"低飛行形"},{"id":"LO","name":"LO (Low Orbit)","type":"Balance","note":""},{"id":"LR","name":"LR (Low Rush)","type":"Attack","note":""},{"id":"MS","name":"MS (Master)","type":"Stamina","note":""},{"id":"N","name":"N","type":"Defense","note":""},{"id":"O","name":"O (Orbit)","type":"Balance","note":"軌道形，旋轉半徑大"},{"id":"P","name":"P","type":"Defense","note":""},{"id":"Q","name":"Q","type":"Strike","note":""},{"id":"R","name":"R (Rush)","type":"Attack","note":"速攻形"},{"id":"RA","name":"RA (Rush Attack)","type":"Attack","note":""},{"id":"S","name":"S (Strike)","type":"Attack","note":"攻擊形，撞擊力強"},{"id":"T","name":"T","type":"Strike","note":""},{"id":"TP","name":"TP (Triple Peak)","type":"Attack","note":"三峰攻擊形"},{"id":"U","name":"U","type":"Defense","note":""},{"id":"UN","name":"UN (Uni)","type":"Balance","note":"統一形"},{"id":"V","name":"V","type":"Defense","note":""},{"id":"GB","name":"GB (Gear Ball)","type":"Stamina","note":"BX-24 Random Booster Vol.2"},{"id":"MN","name":"MN (Metal Needle)","type":"Defense","note":"UX-05 ShinobiShadow Select"},{"id":"Z","name":"Z (Zap)","type":"Balance","note":"UX-14 ScorpioSpear 0-70Z"},{"id":"FF","name":"FF (Free Flat)","type":"Attack","note":"BX-49 DranStrike 4-50FF"},{"id":"I","name":"I (Ignition)","type":"Attack","note":"CX-13 BahamutBlitz BK1-50I"},{"id":"W","name":"W (Wedge)","type":"Defense","note":"CX-03 PerseusDark B6-80W"},{"id":"WW","name":"WW (Wall Wedge)","type":"Defense","note":"CX-12 PhoenixFlare Z9-80WW"},{"id":"WB","name":"WB (Wall Ball)","type":"Stamina","note":"CX-08 Random Booster Vol.7"},{"id":"GU","name":"GU (Gear Unite)","type":"Balance","note":"CX-17 Random Booster Vol.10"},{"id":"UF","name":"UF (Under Flat)","type":"Attack","note":"UX-15 SharkScale Deck Set"},{"id":"TK","name":"TK (Trans Kick)","type":"Balance","note":"CX-09 SolEclipse D5-70TK"},{"id":"Y","name":"Y (Yielding)","type":"Stamina","note":"CX-15 RagnaRage FE4-55Y"},{"id":"M","name":"M (Merge)","type":"Balance","note":"BX-45 SamuraiCalibur 6-70M"},{"id":"Tr","name":"Tr (Turbo)","type":"Attack","note":"CX-07 PegasusBlast ATr"},{"id":"Op","name":"Op (Operate)","type":"Attack","note":"CX-11 EmperorMite HOp"}]};
 
   // ===== APP STATE =====
