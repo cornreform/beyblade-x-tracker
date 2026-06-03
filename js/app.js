@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-06-03",
+  "updated": "2026-06-04",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -453,7 +453,7 @@
       "axis_type": "Quake",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T3",
+      "tier": "T0",
       "meta": "Random Booster Vol.3",
       "release": "2024-04-27",
       "price": 1400,
@@ -1246,15 +1246,15 @@
     },
     {
       "code": "CX-19",
-      "name_en": "BulletGriffon",
+      "name_en": "BrachioWhip",
       "name_jp": "ブラキオウィップ",
-      "name_hk": "BrachioWhip",
+      "name_hk": "腕龍神鞭",
       "lock": "OW5-70",
       "axis": "Nr",
       "axis_type": "Narrow",
-      "spin": "R",
+      "spin": "右",
       "type": "持久型",
-      "tier": "T0",
+      "tier": "T3",
       "meta": "",
       "release": "2026-06-13",
       "price": 1600,
