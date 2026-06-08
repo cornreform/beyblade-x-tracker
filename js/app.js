@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-06-08",
+  "updated": "2026-06-09",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -1174,7 +1174,7 @@
       "axis_type": "Gear Unite",
       "spin": "右",
       "type": "持久型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "Random Booster Vol.10",
       "release": "2026-04-25",
       "price": 1600,
@@ -1190,7 +1190,7 @@
       "axis_type": "Gear Rush",
       "spin": "右",
       "type": "持久型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "Custom Line Expand Blade，4-part configuration，Random Booster Vol.10",
       "release": "2026-06-28",
       "price": 1600,
