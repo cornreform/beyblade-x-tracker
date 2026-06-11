@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-06-11",
+  "updated": "2026-06-12",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -1259,6 +1259,36 @@
       "release": "2026-09",
       "price": "?",
       "image": "parts/top_CX-19.png"
+    },
+    {
+      "code": "UX-20",
+      "name_en": "GloryValkyrie",
+      "name_jp": "グローリーヴァルキリー",
+      "lock": "?",
+      "axis": "LF",
+      "axis_type": "Low Flat",
+      "type": "攻擊型",
+      "spin": "右",
+      "release": "2026-07-11",
+      "price": 2200,
+      "tier": "T1",
+      "meta": "Bound attack gimmick; LF bit",
+      "image": "parts/top_UX-20.png"
+    },
+    {
+      "code": "CX-20",
+      "name_en": "HeavensRing",
+      "name_jp": "ヘヴンリング",
+      "lock": "0-80",
+      "axis": "DS",
+      "axis_type": "Defense Flat",
+      "type": "防禦型",
+      "spin": "右",
+      "release": "2026-07-11",
+      "price": 1600,
+      "tier": "T3",
+      "meta": "Random Booster Vol.11; TT debut of Aether Ring",
+      "image": "parts/top_CX-20.png"
     }
   ],
   "champion_combos": {
