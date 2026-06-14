@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-06-14",
+  "updated": "2026-06-15",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -1206,7 +1206,7 @@
       "axis_type": "Narrow",
       "spin": "右",
       "type": "持久型",
-      "tier": "T3",
+      "tier": "T2",
       "meta": "CX系Random Booster Select，含Narrow Bit",
       "release": "2026-06-13",
       "price": 1600,
@@ -1254,7 +1254,7 @@
       "axis_type": "Narrow",
       "spin": "右",
       "type": "持久型",
-      "tier": "T3",
+      "tier": "T2",
       "meta": "CX系 Random Booster Select，同 CX-18 BrachioWhip 同一 blade",
       "release": "2026-06-13",
       "price": 1600,
@@ -1289,6 +1289,38 @@
       "tier": "T3",
       "meta": "Random Booster Vol.11; TT debut of Aether Ring",
       "image": "parts/top_CX-20.png"
+    },
+    {
+      "code": "BX-00",
+      "name_en": "Storm Pegasis",
+      "name_jp": "ストームペガシス",
+      "name_hk": "風暴天馬",
+      "lock": "3-70",
+      "axis": "RA",
+      "axis_type": "Rubber Accel",
+      "spin": "右",
+      "type": "攻擊型",
+      "tier": "T3",
+      "meta": "Metal Fight homage; 獨立 Starter",
+      "release": "2026-07-11",
+      "price": 2620,
+      "image": "parts/top_BX-00.png"
+    },
+    {
+      "code": "BX-50",
+      "name_en": "Random Booster Vol.11",
+      "name_jp": "ランダムブースター Vol.11",
+      "name_hk": "隨機補充包 Vol.11",
+      "lock": "0-80",
+      "axis": "DS",
+      "axis_type": "Defense Spike",
+      "spin": "右",
+      "type": "防禦型",
+      "tier": "T3",
+      "meta": "HeavensRing 0-80DS prize; ImpactDrake, GhostCircle, WolfFlame, CerberusReaper recolors",
+      "release": "2026-07-11",
+      "price": 1600,
+      "image": "parts/top_BX-50.png"
     }
   ],
   "champion_combos": {
