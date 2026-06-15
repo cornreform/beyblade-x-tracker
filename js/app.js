@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-06-15",
+  "updated": "2026-06-16",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -1077,7 +1077,7 @@
       "axis_type": "Operate",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T2",
+      "tier": "T3",
       "meta": "Deck Set",
       "release": "2026-02-07",
       "price": 5800,
@@ -1142,7 +1142,7 @@
       "axis_type": "Yell",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T2",
       "meta": "Booster版本，攻擊型FE4-55Y齒輪",
       "release": "2026-03-28",
       "price": 1600,
@@ -1158,7 +1158,7 @@
       "axis_type": "Yell",
       "spin": "右",
       "type": "攻擊型",
-      "tier": "T1",
+      "tier": "T2",
       "meta": "Start Dash Set C",
       "release": "2026-03-28",
       "price": 5650,
