@@ -351,7 +351,7 @@
     {
       "code": "BX-24",
       "name_en": "Mammoth Tusk",
-      "name_jp": "ワイバーンゲイル",
+      "name_jp": "マンモスタスク",
       "lock": "5-80",
       "axis": "GB",
       "axis_type": "Gear Ball",
@@ -361,7 +361,7 @@
       "meta": "Random Booster Vol.2",
       "release": "2023-12-27",
       "price": 1400,
-      "name_hk": "猛獁長牙",
+      "name_hk": "猛瑪象牙",
       "image": "parts/top_BX-24.png"
     },
     {
