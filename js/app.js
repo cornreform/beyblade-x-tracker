@@ -2,7 +2,7 @@
   // ===== EMBEDDED GLOBAL DATABASE (from global_beyblade_db.json) =====
   var GLOBAL_DB = {
   "version": "1.0",
-  "updated": "2026-07-02",
+  "updated": "2026-07-03",
   "source": "Takara Tomy, Beyblade Wiki, 巴哈姆特社群評分",
   "description": "全球爆旋陀螺X 資料庫 - BX/UX/CX系列",
   "tier_labels": {
@@ -485,7 +485,7 @@
       "axis_type": "Cyclone",
       "spin": "左",
       "type": "攻擊型",
-      "tier": "T2",
+      "tier": "T1",
       "meta": "🔥 唯一左回転！meta稀有價值",
       "release": "2024-07-13",
       "price": 2321,
