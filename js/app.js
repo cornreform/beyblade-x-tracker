@@ -350,7 +350,7 @@
     },
     {
       "code": "BX-24",
-      "name_en": "Mammoth Tusk",
+      "name_en": "MammothTusk",
       "name_jp": "マンモスタスク",
       "lock": "5-80",
       "axis": "GB",
@@ -1134,7 +1134,7 @@
     },
     {
       "code": "CX-15",
-      "name_en": "Ragnarage",
+      "name_en": "RagnaRage",
       "name_jp": "ラグナレイジ",
       "name_hk": "雷神咆哮",
       "lock": "FE4-55",
@@ -1150,7 +1150,7 @@
     },
     {
       "code": "CX-16",
-      "name_en": "Ragnarage",
+      "name_en": "RagnaRage",
       "name_jp": "ラグナレイジ",
       "name_hk": "雷神咆哮",
       "lock": "FE4-55",
@@ -1292,7 +1292,7 @@
     },
     {
       "code": "BX-00",
-      "name_en": "Storm Pegasis",
+      "name_en": "StormPegasis",
       "name_jp": "ストームペガシス",
       "name_hk": "風暴天馬",
       "lock": "3-70",
